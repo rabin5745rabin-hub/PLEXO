@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="google-site-verification" content="Yqw47KsdvBwHNBa819dNu-HrXFQXOvJDX74Kkf0ctO8" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PLEXO — Pure Water, Better Tomorrow</title>
+<meta name="description" content="PLEXO Mineral Water Company focuses on drinking water quality, hygiene, responsible packaging and reliable distribution.">
+<style>
+:root{--bg:#050b1f;--bg2:#0a1535;--cyan:#22d3ee;--blue:#2f6bff;--white:#f4f8ff;--mute:#9db0d6;--glass:rgba(255,255,255,.055);--line:rgba(120,190,255,.18);--grad:linear-gradient(120deg,#22d3ee,#2f6bff);--r:22px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--white);line-height:1.65;overflow-x:hidden;min-height:100vh}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:8px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--cyan);color:#001;padding:8px 14px;border-radius:8px;z-index:200}
+.skip:focus{left:8px}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(ellipse at 20% 0%,#0d2257 0%,transparent 55%),radial-gradient(ellipse at 90% 100%,#07306b 0%,transparent 50%),var(--bg)}
+.bg::after{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;opacity:.28;mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 75%)}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;animation:drift 22s ease-in-out infinite alternate}
+.o1{width:420px;height:420px;background:#1b5cff;top:-100px;left:-80px}
+.o2{width:360px;height:360px;background:#06b6d4;bottom:-80px;right:-60px;animation-delay:-8s}
+.o3{width:260px;height:260px;background:#5b3cff;top:45%;left:55%;opacity:.3;animation-delay:-14s}
+@keyframes drift{to{transform:translate(70px,50px) scale(1.15)}}
+.wrap{width:min(1180px,92%);margin:auto}
+section{padding:100px 0;position:relative}
+.tag{display:inline-block;padding:6px 16px;border:1px solid var(--line);border-radius:99px;background:var(--glass);color:var(--cyan);font-size:.85rem;margin-bottom:18px}
+h2{font-size:clamp(2rem,4.4vw,3.2rem);line-height:1.15;margin-bottom:16px;letter-spacing:-.02em}
+.lead{color:var(--mute);max-width:640px;font-size:1.08rem}
+.center{text-align:center}.center .lead{margin:auto}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:var(--r);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 20px 50px -25px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.08)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:99px;font-weight:600;transition:transform .25s,box-shadow .25s,background .25s;position:relative}
+.btn:hover{transform:translateY(-3px)}
+.btn.pri{background:var(--grad);color:#021024;box-shadow:0 10px 30px -8px rgba(34,211,238,.6)}
+.btn.pri:hover{box-shadow:0 14px 40px -6px rgba(34,211,238,.9)}
+.btn.sec{border:1px solid var(--cyan);color:var(--cyan);background:rgba(34,211,238,.06)}
+.btn.sec:hover{background:rgba(34,211,238,.16);box-shadow:0 0 28px rgba(34,211,238,.35)}
+.btn.gho{border:1px solid var(--line);background:var(--glass)}
+.btn.gho:hover{border-color:#fff}
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+header.sc{background:rgba(5,11,31,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.45rem;letter-spacing:.18em}
+.logo svg{width:36px;height:36px;filter:drop-shadow(0 0 8px rgba(34,211,238,.7))}
+.links{display:flex;gap:6px;align-items:center;list-style:none}
+.links button{padding:9px 16px;border-radius:99px;color:var(--mute);transition:.25s}
+.links button:hover,.links button.on{color:#fff;background:var(--glass)}
+.links .team{border:1px solid var(--cyan);color:var(--cyan)}
+.links .team.on{background:var(--grad);color:#021024;border-color:transparent}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--glass);flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.burger i{width:20px;height:2px;background:#fff;transition:.3s}
+.burger[aria-expanded=true] i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] i:nth-child(2){opacity:0}
+.burger[aria-expanded=true] i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.view{display:none}
+.view.show{display:block;animation:vin .55s ease both}
+@keyframes vin{from{opacity:0;transform:translateY(24px) scale(.99)}to{opacity:1;transform:none}}
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 70px}
+.hgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+h1{font-size:clamp(2.6rem,6.4vw,5rem);line-height:1.05;letter-spacing:-.03em;margin-bottom:22px}
+.hero p{color:var(--mute);font-size:1.15rem;max-width:560px;margin-bottom:34px}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.stats{display:flex;gap:34px;margin-top:46px;flex-wrap:wrap}
+.stats b{display:block;font-size:2rem;color:var(--cyan)}
+.stats span{color:var(--mute);font-size:.9rem}
+.art{position:relative;aspect-ratio:1;max-width:480px;margin:auto;width:100%}
+.art svg{width:100%;height:100%;overflow:visible}
+.ring{transform-origin:250px 250px;animation:spin 30s linear infinite}
+.ring.r2{animation-duration:45s;animation-direction:reverse}
+.ring.r3{animation-duration:22s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.core{animation:pulse 4s ease-in-out infinite;transform-origin:250px 250px}
+@keyframes pulse{50%{transform:scale(1.07)}}
+.chip{position:absolute;padding:10px 16px;font-size:.88rem;animation:float 6s ease-in-out infinite}
+.chip b{color:var(--cyan)}
+.c1{top:6%;left:-4%}.c2{top:52%;right:-6%;animation-delay:-2s}.c3{bottom:4%;left:6%;animation-delay:-4s}
+@keyframes float{50%{transform:translateY(-14px)}}
+.grid{display:grid;gap:22px;margin-top:54px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g5{grid-template-columns:repeat(6,1fr)}
+.card{padding:32px;transition:transform .35s,border-color .35s,box-shadow .35s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),rgba(34,211,238,.16),transparent 60%);opacity:0;transition:opacity .3s}
+.card:hover{transform:translateY(-8px);border-color:rgba(34,211,238,.6);box-shadow:0 24px 60px -22px rgba(34,211,238,.45)}
+.card:hover::before{opacity:1}
+.card>*{position:relative}
+.ico{width:58px;height:58px;border-radius:16px;background:var(--grad);display:grid;place-items:center;margin-bottom:20px;box-shadow:0 8px 24px -6px rgba(34,211,238,.6)}
+.ico svg{width:28px;height:28px;stroke:#021024;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1.28rem;margin-bottom:8px}
+.card p{color:var(--mute);font-size:.98rem}
+.g5 .card{grid-column:span 2}
+.g5 .card:nth-child(4){grid-column:2/span 2}
+.g5 .card:nth-child(5){grid-column:4/span 2}
+.vmv .card h3{color:var(--cyan)}
+.vals{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:36px}
+.vals span{padding:10px 22px;border-radius:99px;border:1px solid var(--line);background:var(--glass);transition:.3s}
+.vals span:hover{border-color:var(--cyan);box-shadow:0 0 22px rgba(34,211,238,.4);transform:translateY(-3px)}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.agrid p{color:var(--mute);margin-bottom:16px}
+.tl{padding:34px}
+.tl div{padding:0 0 26px 30px;border-left:2px solid var(--line);position:relative}
+.tl div:last-child{padding-bottom:0;border-color:transparent}
+.tl div::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
+.tl b{display:block}.tl span{color:var(--mute);font-size:.95rem}
+.soc{display:flex;gap:10px;justify-content:center;margin-top:16px}
+.soc a,.fsoc a{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:.75rem;color:var(--mute);transition:.25s}
+.soc a:hover,.fsoc a:hover{color:#021024;background:var(--cyan);border-color:var(--cyan);transform:translateY(-3px)}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:50px}
+.clist{padding:34px;display:grid;gap:22px}
+.ci{display:flex;gap:16px;align-items:center}
+.ci .ico{margin:0;width:48px;height:48px;flex:none}
+.ci small{color:var(--mute);display:block;font-size:.82rem}
+.ci span{font-weight:600}
+form.glass{padding:34px;display:grid;gap:16px}
+label{font-size:.88rem;color:var(--mute);display:grid;gap:6px}
+input,textarea{width:100%;padding:13px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(5,11,31,.6);color:#fff;font:inherit;transition:.25s}
+input:focus,textarea:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(34,211,238,.2)}
+textarea{min-height:120px;resize:vertical}
+footer{border-top:1px solid var(--line);background:rgba(5,11,31,.7);padding:60px 0 28px}
+.fgrid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:34px}
+.fgrid p{color:var(--mute);max-width:320px;margin-top:12px;font-size:.95rem}
+.flinks{display:flex;gap:10px 22px;flex-wrap:wrap;align-items:flex-start}
+.flinks button{color:var(--mute);transition:.25s}.flinks button:hover{color:var(--cyan)}
+.fsoc{display:flex;gap:10px;margin-top:16px}
+.copy{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);color:var(--mute);font-size:.88rem;text-align:center}
+.toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,120px);padding:14px 24px;background:var(--bg2);border:1px solid var(--cyan);border-radius:99px;box-shadow:0 0 30px rgba(34,211,238,.4);transition:transform .4s;z-index:300;max-width:90%}
+.toast.on{transform:translate(-50%,0)}
+.top{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;background:var(--grad);color:#021024;font-size:1.3rem;font-weight:700;opacity:0;pointer-events:none;transition:.3s;z-index:90}
+.top.on{opacity:1;pointer-events:auto}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s ease;transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:1000px){.g3{grid-template-columns:1fr 1fr}.g5{grid-template-columns:1fr 1fr}.g5 .card,.g5 .card:nth-child(4),.g5 .card:nth-child(5){grid-column:auto}}
+@media(max-width:860px){
+.hgrid,.agrid,.cgrid{grid-template-columns:1fr}
+.art{max-width:360px;order:-1}.hero{padding-top:110px}
+.burger{display:flex}
+.links{position:fixed;top:74px;left:0;right:0;flex-direction:column;padding:18px;background:rgba(5,11,31,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);transform:translateY(-130%);transition:transform .4s;align-items:stretch}
+.links.open{transform:none}.links button{width:100%;text-align:left;padding:14px 18px}
+section{padding:72px 0}
+}
+@media(max-width:560px){.g3,.g5{grid-template-columns:1fr}.chip{display:none}.btn{width:100%;justify-content:center}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="bg" aria-hidden="true"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
+
+<header id="hdr">
+<div class="wrap nav">
+<a href="#" class="logo" data-go="home" aria-label="PLEXO home">
+<svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#2f6bff"/></linearGradient></defs><path d="M20 3 35 11.5v17L20 37 5 28.5v-17z" fill="none" stroke="url(#lg)" stroke-width="2.4"/><path d="M14 28V12h8a5 5 0 0 1 0 10h-8" fill="none" stroke="url(#lg)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<span>PLEXO</span></a>
+<button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="links"><i></i><i></i><i></i></button>
+<ul class="links" id="links">
+<li><button data-go="home" id="nHome" class="on">Home</button></li>
+<li><button data-go="movement">Our Movement</button></li>
+<li><button data-go="about">About</button></li>
+<li><button data-go="team" id="nTeam" class="team">Team</button></li>
+</ul>
+</div>
+</header>
+
+<main id="main">
+<div class="view show" id="home">
+<section class="hero" id="top">
+<div class="wrap hgrid">
+<div>
+<span class="tag">Mineral Water · Quality · Trust</span>
+<h1>PLEXO — <span class="grad">Pure Water, Better Tomorrow</span></h1>
+<p>PLEXO is a mineral water company focused on drinking water quality, hygienic handling, responsible packaging and reliable distribution. Our goal is to serve customers and businesses with care while building a trusted water brand.</p>
+<div class="cta">
+<button class="btn pri" data-go="about">Explore PLEXO</button>
+<button class="btn sec" data-go="movement">Our Movement</button>
+<button class="btn gho" data-go="team">Meet Our Team</button>
+<a class="btn gho" href="Customers.html">Customer Application</a>
+<div style="flex-basis:100%"><a class="btn gho" href="WhyUs.html">WHY US</a></div>
+</div>
+<div class="stats">
+<div><b>Quality</b><span>Water Quality Focus</span></div>
+<div><b>Hygiene</b><span>Careful Handling</span></div>
+<div><b>Service</b><span>Customer First</span></div>
+</div>
+</div>
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 500 500"><defs>
+<radialGradient id="cg"><stop offset="0" stop-color="#22d3ee"/><stop offset=".6" stop-color="#2f6bff"/><stop offset="1" stop-color="#2f6bff" stop-opacity="0"/></radialGradient>
+<linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#2f6bff" stop-opacity=".2"/></linearGradient>
+<filter id="gl"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<circle cx="250" cy="250" r="190" fill="url(#cg)" opacity=".18" class="core"/>
+<g class="ring"><circle cx="250" cy="250" r="200" fill="none" stroke="url(#rg)" stroke-width="2" stroke-dasharray="4 14"/><circle cx="250" cy="50" r="9" fill="#22d3ee" filter="url(#gl)"/></g>
+<g class="ring r2"><circle cx="250" cy="250" r="150" fill="none" stroke="url(#rg)" stroke-width="2"/><circle cx="400" cy="250" r="8" fill="#fff" filter="url(#gl)"/><circle cx="144" cy="356" r="6" fill="#22d3ee" filter="url(#gl)"/></g>
+<g class="ring r3"><circle cx="250" cy="250" r="105" fill="none" stroke="#22d3ee" stroke-opacity=".5" stroke-dasharray="2 10" stroke-width="2"/><circle cx="250" cy="145" r="7" fill="#2f6bff" filter="url(#gl)"/></g>
+<g class="core" filter="url(#gl)"><path d="M250 175 315 212.5v75L250 325l-65-37.5v-75z" fill="#0a1535" stroke="url(#rg)" stroke-width="3"/><path d="M228 292V208h40a26 26 0 0 1 0 52h-40" fill="none" stroke="#22d3ee" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>
+<div class="chip glass c1"><b>Pure</b> Drinking Water</div>
+<div class="chip glass c2"><b>Quality</b> Careful Handling</div>
+<div class="chip glass c3"><b>Reliable</b> Water Distribution</div>
+</div>
+</div>
+</section>
+
+<section id="movement">
+<div class="wrap">
+<div class="center rv"><span class="tag">Our Movement</span><h2>Better water. <span class="grad">A better tomorrow.</span></h2><p class="lead">PLEXO aims to make drinking water accessible through responsible operations, attention to quality and reliable service for customers and business partners.</p></div>
+<div class="grid g3 vmv">
+<article class="card glass rv"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/></svg></div><h3>Vision</h3><p>To build a trusted water brand known for responsible practices, customer care and a commitment to quality.</p></article>
+<article class="card glass rv" style="--d:.1s"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><h3>Mission</h3><p>To focus on drinking water quality, hygienic handling, suitable packaging and dependable delivery to customers.</p></article>
+<article class="card glass rv" style="--d:.2s"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 21V4M4 4h13l-2 4 2 4H4"/></svg></div><h3>Goals</h3><p>Develop our product range, serve more shops and customers, and expand distribution responsibly.</p></article>
+</div>
+<div class="center rv" style="margin-top:70px"><h2>Our values</h2><p class="lead">Five principles guide our approach to water and customer service.</p></div>
+<div class="grid g5">
+<article class="card glass rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></div><h3>Quality</h3><p>Pay attention to product quality and consistent handling throughout our operations.</p></article>
+<article class="card glass rv" style="--d:.08s"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Hygiene</h3><p>Give importance to clean handling, suitable storage and hygienic packaging practices.</p></article>
+<article class="card glass rv" style="--d:.16s"><div class="ico"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.5 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.5 6-7"/></svg></div><h3>Sustainability</h3><p>Explore responsible packaging and ways to reduce environmental impact.</p></article>
+<article class="card glass rv"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-4 3-6 7-6s7 2 7 6"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.5.6 4 2.5 4 6"/></svg></div><h3>Teamwork</h3><p>Work together with our team, suppliers, shops and distribution partners.</p></article>
+<article class="card glass rv" style="--d:.1s"><div class="ico"><svg viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-9"/><path d="M15 6h6v6"/></svg></div><h3>Growth</h3><p>Improve our service and expand our business based on customer needs.</p></article>
+</div>
+<div class="vals rv" aria-label="Core principles"><span>Trust</span><span>Quality</span><span>Hygiene</span><span>Responsibility</span><span>Customer Care</span></div>
+</div>
+</section>
+
+<section id="about">
+<div class="wrap agrid">
+<div class="rv"><span class="tag">About Us</span><h2>Focused on a <span class="grad">better water experience</span></h2>
+<p><b style="color:#fff">Purpose.</b> PLEXO aims to provide drinking water products with a focus on quality, careful handling and customer needs.</p>
+<p><b style="color:#fff">Mission.</b> Build a dependable water business through responsible operations, appropriate packaging and reliable distribution.</p>
+<p><b style="color:#fff">Vision.</b> Become a trusted name in the drinking water market through quality-focused service and customer satisfaction.</p>
+<p><b style="color:#fff">Long-term goals.</b> Expand distribution, strengthen relationships with shops and customers, and explore more responsible packaging options.</p>
+<div class="cta" style="margin-top:26px"><button class="btn gho" data-go="team">Meet the team</button></div></div>
+<div class="tl glass rv" style="--d:.15s">
+<div><b>Foundation</b><span>Build the PLEXO brand with a focus on drinking water.</span></div>
+<div><b>Product Development</b><span>Focus on packaging, handling and customer requirements.</span></div>
+<div><b>Distribution</b><span>Develop reliable supply to shops and customers.</span></div>
+<div><b>Future Growth</b><span>Explore responsible packaging and wider market reach.</span></div>
+</div>
+</div>
+</section>
+</div>
+</main>
+
+<footer>
+<div class="wrap">
+<div class="fgrid">
+<div><a href="#" class="logo" data-go="home" aria-label="PLEXO home"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 35 11.5v17L20 37 5 28.5v-17z" fill="none" stroke="url(#lg)" stroke-width="2.4"/><path d="M14 28V12h8a5 5 0 0 1 0 10h-8" fill="none" stroke="url(#lg)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>PLEXO</span></a><p>Drinking water, quality-focused service and responsible business growth.</p>
+<div class="fsoc"><a href="#" aria-label="LinkedIn placeholder">in</a><a href="#" aria-label="X placeholder">X</a><a href="#" aria-label="Instagram placeholder">ig</a><a href="#" aria-label="YouTube placeholder">yt</a></div></div>
+<nav class="flinks" aria-label="Footer"><button data-go="home">Home</button><button data-go="movement">Our Movement</button><button data-go="about">About</button><button data-go="team">Team</button></nav>
+</div>
+<div class="copy">© <span id="yr"></span> PLEXO. All rights reserved.</div>
+</div>
+</footer>
+<button class="top" id="topBtn" aria-label="Back to top">↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return[].slice.call((r||document).querySelectorAll(s))};
+var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var links=$("#links"),burger=$("#burger");
+
+var tt;function toast(m){var t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){t.classList.remove("on")},3400)}
+
+var io=("IntersectionObserver" in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.14}):null;
+function observe(){$$(".rv:not(.in)").forEach(function(el){io&&!reduce?io.observe(el):el.classList.add("in")})}
+observe();
+
+function go(t){
+links.classList.remove("open");burger.setAttribute("aria-expanded","false");
+if(t==="team"){location.href="plexo_team.html";return}
+if(t==="home"){window.scrollTo({top:0,behavior:reduce?"auto":"smooth"});return}
+var el=document.getElementById(t);if(el)el.scrollIntoView({behavior:reduce?"auto":"smooth"})}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-go]");if(b){e.preventDefault();go(b.dataset.go)}var a=e.target.closest('a[href="#"]');if(a&&!b)e.preventDefault()});
+burger.addEventListener("click",function(){var o=links.classList.toggle("open");burger.setAttribute("aria-expanded",o)});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){links.classList.remove("open");burger.setAttribute("aria-expanded","false")}});
+
+var hdr=$("#hdr"),top=$("#topBtn");
+window.addEventListener("scroll",function(){var y=window.scrollY;hdr.classList.toggle("sc",y>30);top.classList.toggle("on",y>600)},{passive:true});
+top.addEventListener("click",function(){window.scrollTo({top:0,behavior:reduce?"auto":"smooth"})});
+
+document.addEventListener("pointermove",function(e){var c=e.target.closest&&e.target.closest(".card");if(!c)return;var r=c.getBoundingClientRect();c.style.setProperty("--mx",(e.clientX-r.left)+"px");c.style.setProperty("--my",(e.clientY-r.top)+"px")},{passive:true});
+
+$("#yr").textContent=new Date().getFullYear();
+if(location.hash){var h=document.getElementById(location.hash.slice(1));if(h)setTimeout(function(){h.scrollIntoView()},100)}
+})();
+</script>
+<button id="protectBtn">Enter Password</button>
+<script>
+  document.getElementById("protectBtn").addEventListener("click", function() {
+    let password = prompt("Enter the password:");
+    if (password === "PLEXO") { 
+      window.location.href = "protected.html";
+    } else {
+      alert("Incorrect password!");
+    }
+  });
+</script
+</body>
+</html>
