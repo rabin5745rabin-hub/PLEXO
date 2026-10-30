@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLEXO | Owners Portal</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    color: white;
+    background:
+      radial-gradient(circle at 15% 20%, #164b80 0%, transparent 35%),
+      radial-gradient(circle at 85% 80%, #12365d 0%, transparent 35%),
+      linear-gradient(135deg, #030912, #071a30, #020812);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    overflow-x: hidden;
+}
+
+.portal {
+    width: 100%;
+    max-width: 1150px;
+    min-height: 680px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(155,213,255,.3);
+    border-radius: 28px;
+    background: rgba(255,255,255,.045);
+    box-shadow: 0 30px 100px rgba(0,0,0,.5);
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 55px;
+    border-bottom: 1px solid rgba(155,213,255,.15);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
+.logo span {
+    color: #83caff;
+}
+
+.status {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #9bd5ff;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 75px 25px;
+    position: relative;
+}
+
+.circle {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    border: 2px solid #73bfff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(145deg, #2478d4, #071a30);
+    box-shadow: 0 0 50px rgba(80,170,255,.25);
+    margin-bottom: 35px;
+}
+
+h1 {
+    font-size: clamp(65px, 10vw, 105px);
+    letter-spacing: 15px;
+    font-weight: 900;
+}
+
+h1 span {
+    color: #91d1ff;
+}
+
+.tagline {
+    color: #9bd5ff;
+    font-size: 14px;
+    letter-spacing: 6px;
+    margin-top: 15px;
+}
+
+.line {
+    width: 100px;
+    height: 4px;
+    border-radius: 10px;
+    background: #83caff;
+    margin: 35px auto;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 18px;
+}
+
+.description {
+    color: #bdcfe0;
+    font-size: 17px;
+    line-height: 1.9;
+    max-width: 600px;
+    margin-bottom: 45px;
+}
+
+/* Button Group Style */
+.btn-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+button {
+    padding: 22px 40px;
+    border-radius: 12px;
+    border: 1px solid #b3e0ff;
+    background: linear-gradient(100deg, #2478d4, #125092);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0 12px 35px rgba(36,120,212,.3);
+}
+
+button.chat-btn {
+    background: linear-gradient(100deg, #0f8b8d, #145965);
+    border-color: #72e0e2;
+    box-shadow: 0 12px 35px rgba(15,139,141,.3);
+}
+
+button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 45px rgba(36,120,212,.5);
+}
+
+/* Chat Popup Styles */
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 340px;
+    height: 450px;
+    background: #071a30;
+    border: 1px solid #83caff;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    flex-direction: column;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.chat-header {
+    background: #125092;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(155,213,255,.2);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 5px;
+    box-shadow: none;
+}
+
+.close-btn:hover {
+    transform: none;
+    color: #83caff;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.msg {
+    background: rgba(255,255,255,0.1);
+    padding: 10px 12px;
+    border-radius: 8px;
+    max-width: 80%;
+}
+
+.msg.system {
+    align-self: flex-start;
+    border-left: 3px solid #83caff;
+}
+
+.msg.user {
+    align-self: flex-end;
+    background: #2478d4;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid rgba(155,213,255,.2);
+    background: #030912;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #125092;
+    border-radius: 8px;
+    background: #071a30;
+    color: white;
+    outline: none;
+}
+
+.chat-input button {
+    padding: 10px 15px;
+    margin-left: 8px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+footer {
+    padding: 25px;
+    text-align: center;
+    border-top: 1px solid rgba(155,213,255,.15);
+    color: #91a9c2;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+@media(max-width:600px) {
+    body { padding: 12px; }
+    .portal { min-height: 620px; }
+    header { padding: 22px; }
+    .logo { font-size: 22px; }
+    .status { font-size: 9px; }
+    h1 { letter-spacing: 7px; }
+    .tagline { letter-spacing: 3px; }
+    h2 { font-size: 25px; }
+    .description { font-size: 14px; }
+    button { padding: 18px 25px; }
+    .chat-popup {
+        right: 15px;
+        left: 15px;
+        width: auto;
+        bottom: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="portal">
+
+<header>
+    <div class="logo">PLE<span>XO</span></div>
+    <div class="status">● PRIVATE OWNERS ACCESS</div>
+</header>
+
+<main>
+
+    <div class="circle">P</div>
+
+    <h1>PLE<span>XO</span></h1>
+
+    <p class="tagline">PRIVATE OWNERS PORTAL</p>
+
+    <div class="line"></div>
+
+    <h2>Welcome to PLEXO</h2>
+
+    <p class="description">
+        Welcome to the official private space of PLEXO.
+        A dedicated digital environment for company owners,
+        management and internal operations.
+    </p>
+
+    <!-- Buttons -->
+    <div class="btn-group">
+        <button onclick="openDashboard()">
+            ENTER DASHBOARD &nbsp; →
+        </button>
+
+        <button class="chat-btn" onclick="toggleChat()">
+            CHAT WITH TEAM &nbsp; 💬
+        </button>
+    </div>
+
+</main>
+
+<footer>
+    PLEXO PRIVATE LIMITED &nbsp; | &nbsp; OWNERS PORTAL
+</footer>
+
+</div>
+
+<!-- Chat Popup Window -->
+<div class="chat-popup" id="chatPopup">
+    <div class="chat-header">
+        <span>Team Chat</span>
+        <button class="close-btn" onclick="toggleChat()">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+        <div class="msg system">Welcome to PLEXO Team Chat! How can we help?</div>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="msgInput" placeholder="Type a message...">
+        <button onclick="sendMessage()">SEND</button>
+    </div>
+</div>
+
+<script>
+// പേജ് ലോഡ് ചെയ്യുമ്പോൾ സേവ് ചെയ്ത മെസേജുകൾ തിരികെ കൊണ്ടുവരാൻ
+window.onload = function() {
+    var savedMessages = localStorage.getItem("chatMessages");
+    if (savedMessages) {
+        document.getElementById("chatMessages").innerHTML = savedMessages;
+    }
+};
+
+function openDashboard() {
+    window.location.href = "dashboard.html";
+}
+
+function toggleChat() {
+    var popup = document.getElementById("chatPopup");
+    if (popup.style.display === "flex") {
+        popup.style.display = "none";
+    } else {
+        popup.style.display = "flex";
+    }
+}
+
+function sendMessage() {
+    var input = document.getElementById("msgInput");
+    var text = input.value.trim();
+    if (text !== "") {
+        var messagesDiv = document.getElementById("chatMessages");
+        var newMsg = document.createElement("div");
+        newMsg.className = "msg user";
+        newMsg.textContent = text;
+        messagesDiv.appendChild(newMsg);
+        
+        // ലോക്കൽ സ്റ്റോറേജിൽ ചാറ്റ് ഹിസ്റ്ററി സേവ് ചെയ്യാൻ
+        localStorage.setItem("chatMessages", messagesDiv.innerHTML);
+
+        input.value = "";
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+}
+</script>
+
+</body>
+</html>

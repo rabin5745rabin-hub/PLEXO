@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rijo | Chief Operating Officer - PLEXO</title>
+
+<style>
+:root {
+    --bg: #050b1f;
+    --card: #0b1733;
+    --cyan: #22d3ee;
+    --blue: #3478ff;
+    --white: #f5f8ff;
+    --muted: #a6b7d6;
+    --border: rgba(100, 190, 255, 0.22);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--white);
+    background:
+        radial-gradient(ellipse at top left, #10285a, transparent 45%),
+        radial-gradient(ellipse at bottom right, #06395b, transparent 40%),
+        var(--bg);
+    line-height: 1.8;
+    padding: 35px 18px 60px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 55px 25px;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    background: linear-gradient(
+        145deg,
+        rgba(20, 43, 83, 0.92),
+        rgba(7, 18, 43, 0.96)
+    );
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.company-label {
+    display: inline-block;
+    color: var(--cyan);
+    border: 1px solid var(--border);
+    background: rgba(34, 211, 238, 0.07);
+    border-radius: 30px;
+    padding: 8px 20px;
+    letter-spacing: 3px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.avatar {
+    width: 115px;
+    height: 115px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 25px;
+    border-radius: 30px;
+    color: #041126;
+    background: linear-gradient(135deg, var(--cyan), var(--blue));
+    font-size: 48px;
+    font-weight: 800;
+    box-shadow: 0 10px 35px rgba(34, 211, 238, 0.2);
+}
+
+h1 {
+    font-size: clamp(38px, 7vw, 65px);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+h1 span {
+    color: var(--cyan);
+}
+
+.role {
+    color: #67e8f9;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    max-width: 680px;
+    color: var(--muted);
+    margin: auto;
+    font-size: 16px;
+}
+
+.badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.badge {
+    padding: 8px 14px;
+    border-radius: 25px;
+    color: var(--cyan);
+    border: 1px solid var(--border);
+    background: rgba(34, 211, 238, 0.07);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.content {
+    display: grid;
+    gap: 22px;
+    margin-top: 28px;
+}
+
+.section {
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        rgba(14, 31, 64, 0.94),
+        rgba(7, 18, 43, 0.96)
+    );
+}
+
+.section h2 {
+    color: var(--cyan);
+    font-size: 24px;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.section p {
+    color: var(--muted);
+    margin-bottom: 14px;
+    font-size: 15px;
+}
+
+.section p:last-child {
+    margin-bottom: 0;
+}
+
+.section ul {
+    padding-left: 22px;
+    color: var(--muted);
+}
+
+.section li {
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: var(--white);
+    font-weight: bold;
+}
+
+.quote {
+    border-left: 3px solid var(--cyan);
+    padding: 18px 22px;
+    margin-top: 18px;
+    background: rgba(34, 211, 238, 0.05);
+    color: var(--white);
+    font-size: 17px;
+    font-style: italic;
+}
+
+.back-wrapper {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 13px 30px;
+    border: 1px solid var(--cyan);
+    border-radius: 30px;
+    color: var(--white);
+    background: rgba(34, 211, 238, 0.08);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    color: #041126;
+    background: var(--cyan);
+    transform: translateY(-3px);
+}
+
+footer {
+    text-align: center;
+    margin-top: 35px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 18px 12px 40px;
+    }
+
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .section {
+        padding: 24px 20px;
+    }
+
+    .section h2 {
+        font-size: 21px;
+    }
+
+    .hero-description,
+    .section p {
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+    <!-- PROFILE HEADER -->
+    <header class="hero">
+        <div class="company-label">PLEXO LEADERSHIP</div>
+
+        <div class="avatar">R</div>
+
+        <h1>Rijo <span>.</span></h1>
+
+        <div class="role">
+            Chief Operating Officer (COO)
+        </div>
+
+        <p class="hero-description">
+            A key member of the PLEXO leadership team, focused on
+            operational excellence, teamwork, coordination, and
+            turning the company's plans into practical action.
+        </p>
+
+        <div class="badges">
+            <span class="badge">OPERATIONS</span>
+            <span class="badge">TEAMWORK</span>
+            <span class="badge">EXECUTION</span>
+            <span class="badge">GROWTH</span>
+        </div>
+    </header>
+
+    <div class="content">
+
+        <!-- ABOUT RIJO -->
+        <section class="section">
+            <h2>01. About Rijo</h2>
+
+            <p>
+                Rijo holds the position of Chief Operating Officer
+                at PLEXO. As a member of the company's leadership
+                team, he has an important role in supporting daily
+                operations, organizing activities, and helping the
+                organization move toward its goals.
+            </p>
+
+            <p>
+                A successful company needs more than a good idea.
+                It needs planning, coordination, consistency, and
+                people who are willing to work together. The COO
+                role is designed to help connect the company's
+                vision with its everyday activities.
+            </p>
+
+            <p>
+                Rijo's position represents the importance of
+                responsibility, practical thinking, cooperation,
+                and steady progress. Through effective coordination
+                and a commitment to shared goals, the operations
+                function can help create a strong foundation for
+                the future of PLEXO.
+            </p>
+        </section>
+
+        <!-- ROLE -->
+        <section class="section">
+            <h2>02. Role and Responsibilities</h2>
+
+            <p>
+                The Chief Operating Officer plays a central role
+                in helping a company organize its work and maintain
+                efficient operations. At PLEXO, the role is intended
+                to support the practical implementation of business
+                plans and the coordination of the team.
+            </p>
+
+            <ul>
+                <li>
+                    <span class="highlight">Daily Operations:</span>
+                    Helping organize the company's regular activities
+                    and maintain a clear working process.
+                </li>
+
+                <li>
+                    <span class="highlight">Team Coordination:</span>
+                    Supporting communication between team members
+                    and encouraging cooperation.
+                </li>
+
+                <li>
+                    <span class="highlight">Planning and Execution:</span>
+                    Helping translate business objectives into
+                    organized tasks and practical steps.
+                </li>
+
+                <li>
+                    <span class="highlight">Problem-Solving:</span>
+                    Identifying operational challenges and helping
+                    the team consider practical solutions.
+                </li>
+
+                <li>
+                    <span class="highlight">Progress Monitoring:</span>
+                    Reviewing ongoing tasks and helping ensure
+                    that important responsibilities receive attention.
+                </li>
+
+                <li>
+                    <span class="highlight">Continuous Improvement:</span>
+                    Encouraging better methods, clear procedures,
+                    and more efficient ways of working.
+                </li>
+            </ul>
+        </section>
+
+        <!-- LEADERSHIP -->
+        <section class="section">
+            <h2>03. Leadership and Teamwork</h2>
+
+            <p>
+                Leadership is not only about holding a position.
+                It is also about accepting responsibility, respecting
+                different ideas, communicating clearly, and helping
+                people work toward a common purpose.
+            </p>
+
+            <p>
+                As COO, Rijo's role supports a working environment
+                where team members understand their responsibilities
+                and cooperate to achieve shared objectives. Good
+                coordination can reduce confusion, improve efficiency,
+                and help a growing company respond to challenges.
+            </p>
+
+            <p>
+                Strong teamwork depends on trust and mutual respect.
+                Every member contributes differently, and effective
+                operations help bring those contributions together.
+                A coordinated team is better prepared to manage
+                responsibilities and work toward long-term success.
+            </p>
+        </section>
+
+        <!-- BUSINESS OPERATIONS -->
+        <section class="section">
+            <h2>04. Building Strong Operations</h2>
+
+            <p>
+                Well-organized operations are essential for a
+                company that wants to grow. Clear responsibilities,
+                realistic schedules, consistent communication,
+                and regular reviews help ensure that work progresses
+                in an organized manner.
+            </p>
+
+            <p>
+                The COO function helps connect planning with
+                implementation. It focuses on understanding what
+                needs to be done, deciding how work should be
+                organized, identifying potential obstacles, and
+                helping the team complete its responsibilities.
+            </p>
+
+            <p>
+                For PLEXO, a strong operational foundation can
+                support better customer service, reliable delivery
+                of products and services, responsible use of resources,
+                and a more consistent experience for customers.
+            </p>
+        </section>
+
+        <!-- PROBLEM SOLVING -->
+        <section class="section">
+            <h2>05. Practical Thinking and Problem-Solving</h2>
+
+            <p>
+                Every growing business faces challenges. Unexpected
+                delays, changing customer needs, limited resources,
+                and communication problems can affect daily work.
+                Addressing these issues requires patience, careful
+                thinking, and a willingness to consider solutions.
+            </p>
+
+            <p>
+                The COO role supports a practical approach to
+                problem-solving. This includes understanding the
+                issue, gathering relevant information, discussing
+                possible options with the team, and helping choose
+                a suitable course of action.
+            </p>
+
+            <p>
+                By encouraging a solution-focused working culture,
+                PLEXO can learn from challenges and improve its
+                processes over time.
+            </p>
+        </section>
+
+        <!-- VALUES -->
+        <section class="section">
+            <h2>06. Professional Values</h2>
+
+            <p>
+                A company's reputation is shaped by the way it
+                works every day. Responsibility, honesty, respect,
+                discipline, and a commitment to quality are important
+                values for a professional organization.
+            </p>
+
+            <ul>
+                <li><span class="highlight">Responsibility:</span>
+                    Taking assigned duties seriously and following
+                    through on commitments.</li>
+
+                <li><span class="highlight">Respect:</span>
+                    Listening to colleagues and treating people
+                    professionally.</li>
+
+                <li><span class="highlight">Consistency:</span>
+                    Supporting reliable processes and steady progress.</li>
+
+                <li><span class="highlight">Cooperation:</span>
+                    Working with other leaders and team members
+                    toward common goals.</li>
+
+                <li><span class="highlight">Learning:</span>
+                    Remaining open to feedback and better ways
+                    of doing things.</li>
+            </ul>
+        </section>
+
+        <!-- PLEXO VISION -->
+        <section class="section">
+            <h2>07. Supporting the Vision of PLEXO</h2>
+
+            <p>
+                PLEXO aims to build a professional organization
+                with a clear direction, strong teamwork, and a
+                focus on customer trust. Achieving that vision
+                requires every part of the company to work together.
+            </p>
+
+            <p>
+                The COO role contributes by helping organize
+                operational activities, supporting implementation
+                of company plans, and encouraging consistent
+                standards across the business.
+            </p>
+
+            <p>
+                As the company develops, organized systems and
+                responsible decision-making can help PLEXO adapt
+                to new opportunities while maintaining its focus
+                on quality, service, and sustainable growth.
+            </p>
+        </section>
+
+        <!-- GROWTH -->
+        <section class="section">
+            <h2>08. Growth and Continuous Improvement</h2>
+
+            <p>
+                Progress comes from learning, reviewing results,
+                and making improvements when needed. A strong
+                operational approach does not depend on doing
+                everything perfectly from the beginning. It
+                depends on identifying what works, recognizing
+                what needs improvement, and taking action.
+            </p>
+
+            <p>
+                Through organized planning and cooperation, the
+                operations team can help PLEXO improve efficiency,
+                use resources responsibly, and prepare for future
+                opportunities.
+            </p>
+
+            <p>
+                Long-term success is built through consistent
+                effort. Every completed task, improved process,
+                and resolved challenge can contribute to a stronger
+                and more capable organization.
+            </p>
+        </section>
+
+        <!-- WORKING CULTURE -->
+        <section class="section">
+            <h2>09. Working Culture and Communication</h2>
+
+            <p>
+                Clear communication helps teams understand priorities,
+                avoid unnecessary confusion, and respond to changes
+                more effectively. An organized working culture also
+                makes it easier for people to raise concerns, share
+                ideas, and coordinate their responsibilities.
+            </p>
+
+            <p>
+                The COO function supports these principles by
+                encouraging clarity, cooperation, and a practical
+                approach to everyday work. When team members know
+                their responsibilities and understand the company's
+                goals, they can contribute with greater confidence.
+            </p>
+        </section>
+
+        <!-- FUTURE -->
+        <section class="section">
+            <h2>10. Looking Toward the Future</h2>
+
+            <p>
+                As PLEXO grows, operational planning and coordination
+                will remain important. New opportunities may require
+                better systems, additional team members, improved
+                communication, and more structured processes.
+            </p>
+
+            <p>
+                The COO position supports the company's preparation
+                for these changes. By focusing on practical execution,
+                responsible planning, and teamwork, the operations
+                function can help establish a foundation for continued
+                development.
+            </p>
+
+            <p>
+                The goal is to help build an organization that works
+                efficiently, responds thoughtfully to challenges,
+                and remains committed to its customers and shared
+                objectives.
+            </p>
+        </section>
+
+        <!-- MESSAGE -->
+        <section class="section">
+            <h2>11. A Message About Leadership</h2>
+
+            <p>
+                Strong leadership is reflected in consistent effort,
+                thoughtful decisions, and respect for the people
+                who contribute to a company's progress. Every role
+                matters when an organization is working toward
+                a shared vision.
+            </p>
+
+            <p>
+                As Chief Operating Officer, Rijo is part of the
+                leadership structure that supports PLEXO's operations
+                and development. His role reflects the importance
+                of coordination, execution, and working together
+                to turn plans into progress.
+            </p>
+
+            <div class="quote">
+                "Great results come from clear goals, consistent
+                effort, strong teamwork, and the willingness to
+                improve every day."
+            </div>
+        </section>
+
+    </div>
+
+    <div class="back-wrapper">
+        <button class="back-button" onclick="history.back()">
+            &#8592; Back to Team
+        </button>
+    </div>
+
+    <footer>
+        PLEXO | LEADERSHIP & MANAGEMENT
+    </footer>
+
+</main>
+
+</body>
+</html>

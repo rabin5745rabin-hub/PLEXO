@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Application - PLEXO</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #000000; /* Black background */
+            color: #ffffff; /* White text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: #0d1117; /* Dark background */
+            border: 1px solid #1f6feb; /* Blue border */
+            border-radius: 12px;
+            padding: 30px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 8px 24px rgba(0, 119, 255, 0.2);
+        }
+
+        h2 {
+            color: #58a6ff; /* Light Blue */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #58a6ff; /* Light Blue */
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #000000; /* Black */
+            border: 1px solid #1f6feb; /* Blue */
+            border-radius: 6px;
+            color: #ffffff; /* White */
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #58a6ff; /* Light Blue */
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #1f6feb; /* Blue */
+            color: #ffffff; /* White */
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #58a6ff; /* Light Blue */
+            color: #000000;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #58a6ff; /* Light Blue */
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Customer Application</h2>
+    <form id="whatsappForm">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Mobile Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter 10-digit mobile number" required pattern="[0-9]{10}">
+        </div>
+
+        <div class="form-group">
+            <label for="store_name">Store Name</label>
+            <input type="text" id="store_name" name="store_name" placeholder="Enter store/shop name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" name="address" rows="3" placeholder="Enter complete address" required></textarea>
+        </div>
+
+        <button type="submit">Send via WhatsApp</button>
+    </form>
+
+    <a href="index.html" class="back-link">← Back to Home</a>
+</div>
+
+<script>
+    document.getElementById('whatsappForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const store_name = document.getElementById('store_name').value;
+        const address = document.getElementById('address').value;
+
+        // നിങ്ങളുടെ വാട്സാപ്പ് നമ്പർ ഇവിടെ നൽകുക (ഉദാഹരണത്തിന്: 919846XXXXXX)
+        const whatsappNumber = '919562580319'; 
+
+        const message = `*New Customer Application*%0A%0A` +
+                        `*Name:* ${name}%0A` +
+                        `*Mobile Number:* ${phone}%0A` +
+                        `*Store Name:* ${store_name}%0A` +
+                        `*Address:* ${address}`;
+
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+        window.open(whatsappUrl, '_blank');
+    });
+</script>
+
+</body>
+</html>

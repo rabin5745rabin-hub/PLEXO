@@ -1,0 +1,652 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLEXO | Business Financial Dashboard</title>
+
+<style>
+:root {
+  --black:#061426;
+  --black2:#102944;
+  --blue:#176bc1;
+  --light:#91d2ff;
+  --white:#ffffff;
+  --soft:#eaf5ff;
+  --muted:#a9c2dc;
+}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--black);
+  color:var(--white);
+  overflow-x:hidden;
+}
+button{font-family:inherit}
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(6,20,38,.96);
+  border-bottom:1px solid rgba(145,210,255,.2);
+  backdrop-filter:blur(15px);
+  padding:17px 5%;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-size:27px;font-weight:900;letter-spacing:5px}
+.logo span{color:var(--light)}
+.header-right{display:flex;align-items:center;gap:18px}
+.status{font-size:11px;color:var(--light);letter-spacing:2px}
+.menu-btn{
+  display:none;background:var(--blue);color:white;
+  border:0;border-radius:8px;padding:10px 14px;cursor:pointer
+}
+.layout{display:flex;min-height:100vh}
+.sidebar{
+  width:245px;flex-shrink:0;
+  background:#091a2d;
+  border-right:1px solid rgba(145,210,255,.15);
+  padding:28px 15px;
+  position:sticky;top:72px;height:calc(100vh - 72px);
+  overflow-y:auto;
+}
+.side-title{
+  color:var(--muted);font-size:10px;
+  letter-spacing:2px;margin:10px 12px 18px
+}
+.nav{
+  width:100%;display:flex;align-items:center;gap:13px;
+  background:transparent;color:#c6ddf2;
+  border:0;padding:15px 13px;border-radius:10px;
+  margin-bottom:7px;text-align:left;cursor:pointer;
+  font-size:13px;transition:.25s;
+}
+.nav:hover,.nav.active{
+  color:white;background:linear-gradient(100deg,var(--blue),#16477b);
+  transform:translateX(3px);
+}
+.nav-icon{font-size:17px;width:23px;text-align:center}
+.content{flex:1;min-width:0;padding:32px 4% 60px}
+.section{display:none;animation:appear .5s ease}
+.section.active{display:block}
+@keyframes appear{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.page-heading{
+  display:flex;justify-content:space-between;
+  align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:28px
+}
+.eyebrow{
+  font-size:11px;letter-spacing:3px;color:var(--light);
+  margin-bottom:10px;font-weight:bold
+}
+h1{font-size:clamp(27px,4vw,38px);margin-bottom:9px}
+.subheading{color:var(--muted);font-size:14px;line-height:1.6}
+.action-btn{
+  padding:12px 18px;border-radius:9px;
+  background:var(--blue);color:white;border:1px solid var(--light);
+  cursor:pointer;font-size:12px;font-weight:bold;
+  transition:.25s;
+}
+.action-btn:hover{transform:translateY(-3px);box-shadow:0 9px 24px rgba(23,107,193,.4)}
+.action-btn:active{transform:scale(.96)}
+.grid{display:grid;gap:17px}
+.cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{
+  position:relative;overflow:hidden;
+  padding:23px;border-radius:16px;
+  background:linear-gradient(145deg,#102944,#0a1b30);
+  border:1px solid rgba(145,210,255,.18);
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-5px);
+  border-color:var(--light);
+  box-shadow:0 15px 35px rgba(0,0,0,.3);
+}
+.card:after{
+  content:"";position:absolute;width:120px;height:120px;
+  border-radius:50%;background:rgba(145,210,255,.06);
+  right:-45px;top:-50px;
+}
+.card-label{font-size:12px;color:var(--muted);margin-bottom:17px}
+.card-value{font-size:clamp(23px,3vw,32px);font-weight:800;letter-spacing:-1px}
+.card-note{font-size:11px;color:var(--light);margin-top:12px}
+.card-icon{font-size:21px;margin-bottom:17px}
+.highlight{
+  background:linear-gradient(130deg,#176bc1,#0e3155);
+  border-color:#91d2ff;
+}
+.highlight .card-label,.highlight .card-note{color:white}
+.panel{
+  background:linear-gradient(145deg,#102944,#091a2d);
+  border:1px solid rgba(145,210,255,.17);
+  border-radius:17px;padding:24px;
+}
+.panel-title{font-size:17px;font-weight:bold;margin-bottom:8px}
+.panel-sub{color:var(--muted);font-size:12px;margin-bottom:22px}
+.two-col{grid-template-columns:1.25fr 1fr;margin-top:22px}
+.three-col{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:20px}
+.bar-list{display:flex;flex-direction:column;gap:19px}
+.bar-info{display:flex;justify-content:space-between;gap:10px;font-size:12px;margin-bottom:9px}
+.bar-track{height:10px;border-radius:20px;background:#061426;overflow:hidden}
+.bar-fill{
+  height:100%;border-radius:20px;
+  background:linear-gradient(90deg,#176bc1,#91d2ff);
+  width:0;transition:width 1.2s ease;
+}
+.donut-wrap{display:flex;align-items:center;justify-content:center;gap:25px;flex-wrap:wrap}
+.donut{
+  width:175px;height:175px;border-radius:50%;
+  background:conic-gradient(var(--light) 0 20%,var(--blue) 20% 100%);
+  display:grid;place-items:center;position:relative;
+}
+.donut:before{
+  content:"";position:absolute;width:115px;height:115px;
+  border-radius:50%;background:#102944;
+}
+.donut-center{z-index:1;text-align:center}
+.donut-center strong{display:block;font-size:25px}
+.donut-center span{font-size:10px;color:var(--muted)}
+.legend{display:flex;flex-direction:column;gap:13px;font-size:12px}
+.legend-row{display:flex;align-items:center;gap:9px}
+.dot{width:10px;height:10px;border-radius:3px;background:var(--light)}
+.dot.blue{background:var(--blue)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{
+  color:var(--light);font-size:11px;
+  letter-spacing:1px;text-align:left;
+  padding:15px 12px;border-bottom:1px solid rgba(145,210,255,.25)
+}
+td{padding:15px 12px;border-bottom:1px solid rgba(145,210,255,.1);color:#e0efff}
+tr:hover td{background:rgba(145,210,255,.05)}
+.table-wrap{overflow-x:auto}
+.positive{color:var(--light);font-weight:bold}
+.negative{color:#ffffff}
+.big-number{font-size:clamp(32px,5vw,50px);font-weight:900;color:var(--light)}
+.info-box{
+  padding:18px;border-radius:12px;
+  background:rgba(23,107,193,.15);
+  border:1px solid rgba(145,210,255,.25);
+  color:#d7ebff;font-size:13px;line-height:1.8;margin-top:18px
+}
+.stat-row{
+  display:flex;justify-content:space-between;gap:10px;
+  padding:15px 0;border-bottom:1px solid rgba(145,210,255,.12);
+  font-size:13px
+}
+.stat-row span:first-child{color:var(--muted)}
+.stat-row strong{color:white}
+.section-gap{margin-top:25px}
+.chart-bars{
+  display:flex;align-items:end;justify-content:space-around;
+  height:190px;padding-top:20px;gap:15px;
+  border-bottom:1px solid rgba(145,210,255,.3);
+}
+.chart-column{height:100%;flex:1;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:9px}
+.chart-bar{
+  width:min(65px,85%);height:0;min-height:3px;
+  border-radius:8px 8px 0 0;
+  background:linear-gradient(0deg,#176bc1,#91d2ff);
+  transition:height 1s ease;
+}
+.chart-label{font-size:10px;color:var(--muted);text-align:center}
+.metric{
+  padding:20px;border-radius:14px;
+  background:#0a2038;border:1px solid rgba(145,210,255,.2)
+}
+.metric small{display:block;color:var(--muted);font-size:11px;margin-bottom:12px}
+.metric strong{font-size:23px}
+.footer{
+  text-align:center;padding:25px 10px;
+  color:var(--muted);font-size:10px;letter-spacing:2px;
+  border-top:1px solid rgba(145,210,255,.15);margin-top:45px
+}
+@media(max-width:1050px){
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:760px){
+  header{padding:15px 20px}
+  .menu-btn{display:block}
+  .sidebar{
+    display:none;position:fixed;z-index:99;top:64px;left:0;
+    width:260px;height:calc(100vh - 64px);
+    box-shadow:15px 15px 40px rgba(0,0,0,.5)
+  }
+  .sidebar.open{display:block}
+  .content{padding:25px 17px 45px}
+  .two-col,.three-col{grid-template-columns:1fr}
+  .status{display:none}
+}
+@media(max-width:430px){
+  .cards{grid-template-columns:1fr 1fr;gap:10px}
+  .card{padding:16px}
+  .card-value{font-size:21px}
+  .card-label{font-size:11px}
+  .panel{padding:17px}
+}
+@media print{
+  body{background:white!important;color:black!important}
+  header,.sidebar,.action-btn,.menu-btn{display:none!important}
+  .layout{display:block}
+  .content{padding:0}
+  .section{display:none!important}
+  .section.active{display:block!important}
+  .card,.panel,.metric{background:white!important;color:black!important;border:1px solid #061426;break-inside:avoid}
+  .card-label,.card-note,.panel-sub,.subheading,.stat-row span:first-child{color:#061426!important}
+  .card-value,.panel-title,.stat-row strong,.big-number{color:#061426!important}
+  td{color:black!important}
+  th{color:#176bc1!important}
+  .footer{color:black}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">PLE<span>XO</span></div>
+  <div class="header-right">
+    <div class="status">● BUSINESS FINANCIAL REPORT</div>
+    <button class="action-btn" onclick="window.print()">PRINT REPORT ↗</button>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </div>
+</header>
+
+<div class="layout">
+
+<aside class="sidebar" id="sidebar">
+  <div class="side-title">BUSINESS MANAGEMENT</div>
+  <button class="nav active" onclick="showSection('home',this)"><span class="nav-icon">⌂</span> Home Dashboard</button>
+  <button class="nav" onclick="showSection('overview',this)"><span class="nav-icon">▦</span> Business Overview</button>
+  <button class="nav" onclick="showSection('cost',this)"><span class="nav-icon">◈</span> Cost Breakdown</button>
+  <button class="nav" onclick="showSection('supply',this)"><span class="nav-icon">▣</span> Three-Day Supply</button>
+  <button class="nav" onclick="showSection('monthly',this)"><span class="nav-icon">▤</span> Monthly Financial Report</button>
+  <button class="nav" onclick="showSection('shops',this)"><span class="nav-icon">⌖</span> Shop Distribution</button>
+  <button class="nav" onclick="showSection('profit',this)"><span class="nav-icon">↗</span> Final Profit Summary</button>
+  <div class="side-title" style="margin-top:35px">COMPANY</div>
+  <div class="info-box" style="font-size:11px;margin-top:0">
+    PLEXO<br>
+    Bottled Water Supply<br>
+    & Distribution
+  </div>
+</aside>
+
+<main class="content">
+
+<!-- HOME -->
+<section class="section active" id="home">
+  <div class="page-heading">
+    <div>
+      <div class="eyebrow">PLEXO / OVERVIEW</div>
+      <h1>Business Dashboard</h1>
+      <p class="subheading">Bottled Water Supply & Distribution · Financial Overview</p>
+    </div>
+    <button class="action-btn" onclick="showSection('monthly',document.querySelectorAll('.nav')[4])">VIEW MONTHLY REPORT →</button>
+  </div>
+
+  <div class="grid cards">
+    <div class="card">
+      <div class="card-icon">₹</div>
+      <div class="card-label">MONTHLY REVENUE</div>
+      <div class="card-value counter" data-value="300000">₹0</div>
+      <div class="card-note">20,000 bottles × ₹15</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">▤</div>
+      <div class="card-label">MONTHLY EXPENSES</div>
+      <div class="card-value counter" data-value="250000">₹0</div>
+      <div class="card-note">Total operating cost</div>
+    </div>
+    <div class="card highlight">
+      <div class="card-icon">↗</div>
+      <div class="card-label">MONTHLY NET PROFIT</div>
+      <div class="card-value counter" data-value="50000">₹0</div>
+      <div class="card-note">Profit after listed costs</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">◉</div>
+      <div class="card-label">PROFIT PER BOTTLE</div>
+      <div class="card-value">₹2.50</div>
+      <div class="card-note">16.67% of selling price</div>
+    </div>
+  </div>
+
+  <div class="grid two-col">
+    <div class="panel">
+      <div class="panel-title">Monthly Financial Performance</div>
+      <div class="panel-sub">Revenue, expenses and net profit</div>
+      <div class="chart-bars" id="homeChart">
+        <div class="chart-column"><div class="chart-bar" data-height="100%"></div><div class="chart-label">Revenue</div></div>
+        <div class="chart-column"><div class="chart-bar" data-height="83.33%"></div><div class="chart-label">Expenses</div></div>
+        <div class="chart-column"><div class="chart-bar" data-height="16.67%"></div><div class="chart-label">Profit</div></div>
+      </div>
+      <div class="info-box">Monthly revenue: ₹3,00,000 · Monthly expenses: ₹2,50,000 · Net profit: ₹50,000.</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Profit & Expense Ratio</div>
+      <div class="panel-sub">How monthly revenue is distributed</div>
+      <div class="donut-wrap">
+        <div class="donut">
+          <div class="donut-center"><strong>16.67%</strong><span>NET PROFIT</span></div>
+        </div>
+        <div class="legend">
+          <div class="legend-row"><span class="dot blue"></span> Expenses · 83.33%</div>
+          <div class="legend-row"><span class="dot"></span> Profit · 16.67%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid three-col">
+    <div class="metric"><small>THREE-DAY SUPPLY</small><strong>2,000 Bottles</strong></div>
+    <div class="metric"><small>MONTHLY TRIPS</small><strong>10 Trips</strong></div>
+    <div class="metric"><small>SHOP NETWORK</small><strong>84 Shops</strong></div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="section" id="overview">
+  <div class="page-heading">
+    <div><div class="eyebrow">BUSINESS PROFILE</div><h1>Business Overview</h1>
+    <p class="subheading">Core business information and operating model.</p></div>
+  </div>
+
+  <div class="panel">
+    <div class="eyebrow">BUSINESS MODEL</div>
+    <h2 style="font-size:27px;margin-bottom:15px">Bottled Water Supply & Distribution</h2>
+    <p class="subheading">A distribution business supplying bottled drinking water to retail shops through scheduled delivery trips.</p>
+    <div class="grid three-col">
+      <div class="metric"><small>SELLING PRICE</small><strong>₹15 / Bottle</strong></div>
+      <div class="metric"><small>TOTAL COST</small><strong>₹12.50 / Bottle</strong></div>
+      <div class="metric"><small>GROSS PROFIT</small><strong>₹2.50 / Bottle</strong></div>
+    </div>
+  </div>
+
+  <div class="grid two-col">
+    <div class="panel">
+      <div class="panel-title">Business Operations</div>
+      <div class="stat-row"><span>Product</span><strong>Bottled Water</strong></div>
+      <div class="stat-row"><span>Distribution model</span><strong>Retail Shops</strong></div>
+      <div class="stat-row"><span>Supply frequency</span><strong>Every 3 Days</strong></div>
+      <div class="stat-row"><span>Monthly trips</span><strong>10</strong></div>
+      <div class="stat-row"><span>Total shops</span><strong>84</strong></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Business Performance</div>
+      <div class="stat-row"><span>Monthly bottles</span><strong>20,000</strong></div>
+      <div class="stat-row"><span>Monthly revenue</span><strong>₹3,00,000</strong></div>
+      <div class="stat-row"><span>Monthly costs</span><strong>₹2,50,000</strong></div>
+      <div class="stat-row"><span>Monthly profit</span><strong class="positive">₹50,000</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- COST -->
+<section class="section" id="cost">
+  <div class="page-heading">
+    <div><div class="eyebrow">UNIT ECONOMICS</div><h1>Cost Breakdown</h1>
+    <p class="subheading">Detailed cost structure for every bottle supplied.</p></div>
+  </div>
+
+  <div class="grid cards">
+    <div class="card"><div class="card-label">SELLING PRICE</div><div class="card-value">₹15.00</div><div class="card-note">Per bottle</div></div>
+    <div class="card"><div class="card-label">TOTAL COST</div><div class="card-value">₹12.50</div><div class="card-note">Per bottle</div></div>
+    <div class="card highlight"><div class="card-label">PROFIT</div><div class="card-value">₹2.50</div><div class="card-note">Per bottle</div></div>
+    <div class="card"><div class="card-label">PROFIT MARGIN</div><div class="card-value">16.67%</div><div class="card-note">Of selling price</div></div>
+  </div>
+
+  <div class="grid two-col">
+    <div class="panel">
+      <div class="panel-title">Cost Components</div>
+      <div class="panel-sub">Cost per bottle in Indian Rupees</div>
+      <div class="bar-list">
+        <div><div class="bar-info"><span>Bottle Purchase</span><strong>₹8.00</strong></div><div class="bar-track"><div class="bar-fill" data-width="64%"></div></div></div>
+        <div><div class="bar-info"><span>Electricity</span><strong>₹1.00</strong></div><div class="bar-track"><div class="bar-fill" data-width="8%"></div></div></div>
+        <div><div class="bar-info"><span>Salary</span><strong>₹1.00</strong></div><div class="bar-track"><div class="bar-fill" data-width="8%"></div></div></div>
+        <div><div class="bar-info"><span>Transporting</span><strong>₹1.50</strong></div><div class="bar-track"><div class="bar-fill" data-width="12%"></div></div></div>
+        <div><div class="bar-info"><span>Rent</span><strong>₹1.00</strong></div><div class="bar-track"><div class="bar-fill" data-width="8%"></div></div></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">Cost Statement</div>
+      <div class="panel-sub">Complete unit cost calculation</div>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>DESCRIPTION</th><th>AMOUNT</th></tr></thead>
+        <tbody>
+          <tr><td>Bottle Purchase</td><td>₹8.00</td></tr>
+          <tr><td>Electricity</td><td>₹1.00</td></tr>
+          <tr><td>Salary</td><td>₹1.00</td></tr>
+          <tr><td>Transporting</td><td>₹1.50</td></tr>
+          <tr><td>Rent</td><td>₹1.00</td></tr>
+          <tr><td><strong>Total Cost</strong></td><td><strong>₹12.50</strong></td></tr>
+          <tr><td>Selling Price</td><td>₹15.00</td></tr>
+          <tr><td class="positive">Net Profit</td><td class="positive">₹2.50</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE DAY -->
+<section class="section" id="supply">
+  <div class="page-heading">
+    <div><div class="eyebrow">DELIVERY CYCLE</div><h1>Three-Day Supply</h1>
+    <p class="subheading">Financial performance for one complete supply cycle.</p></div>
+  </div>
+
+  <div class="grid cards">
+    <div class="card"><div class="card-label">TOTAL BOTTLES</div><div class="card-value">2,000</div><div class="card-note">One supply cycle</div></div>
+    <div class="card"><div class="card-label">TOTAL REVENUE</div><div class="card-value">₹30,000</div><div class="card-note">2,000 × ₹15</div></div>
+    <div class="card"><div class="card-label">TOTAL COST</div><div class="card-value">₹25,000</div><div class="card-note">2,000 × ₹12.50</div></div>
+    <div class="card highlight"><div class="card-label">TOTAL PROFIT</div><div class="card-value">₹5,000</div><div class="card-note">2,000 × ₹2.50</div></div>
+  </div>
+
+  <div class="grid two-col">
+    <div class="panel">
+      <div class="panel-title">Three-Day Financial Performance</div>
+      <div class="panel-sub">Revenue allocation</div>
+      <div class="donut-wrap">
+        <div class="donut"><div class="donut-center"><strong>₹5,000</strong><span>PROFIT</span></div></div>
+        <div class="legend">
+          <div class="legend-row"><span class="dot blue"></span> Cost · ₹25,000</div>
+          <div class="legend-row"><span class="dot"></span> Profit · ₹5,000</div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Supply Cycle Summary</div>
+      <div class="stat-row"><span>Supply duration</span><strong>3 Days</strong></div>
+      <div class="stat-row"><span>Bottles supplied</span><strong>2,000</strong></div>
+      <div class="stat-row"><span>Revenue</span><strong>₹30,000</strong></div>
+      <div class="stat-row"><span>Expenses</span><strong>₹25,000</strong></div>
+      <div class="stat-row"><span>Cycle profit</span><strong class="positive">₹5,000</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- MONTHLY -->
+<section class="section" id="monthly">
+  <div class="page-heading">
+    <div><div class="eyebrow">FINANCIAL STATEMENT</div><h1>Monthly Financial Report</h1>
+    <p class="subheading">Projected performance based on 10 monthly trips.</p></div>
+    <button class="action-btn" onclick="window.print()">PRINT REPORT ↗</button>
+  </div>
+
+  <div class="grid cards">
+    <div class="card"><div class="card-label">MONTHLY BOTTLES</div><div class="card-value">20,000</div><div class="card-note">10 trips × 2,000</div></div>
+    <div class="card"><div class="card-label">MONTHLY REVENUE</div><div class="card-value">₹3,00,000</div><div class="card-note">Total sales</div></div>
+    <div class="card"><div class="card-label">MONTHLY EXPENSES</div><div class="card-value">₹2,50,000</div><div class="card-note">Total operating cost</div></div>
+    <div class="card highlight"><div class="card-label">MONTHLY NET PROFIT</div><div class="card-value">₹50,000</div><div class="card-note">Revenue − costs</div></div>
+  </div>
+
+  <div class="panel section-gap">
+    <div class="panel-title">Monthly Expense Distribution</div>
+    <div class="panel-sub">Breakdown of ₹2,50,000 total monthly costs</div>
+    <div class="bar-list">
+      <div><div class="bar-info"><span>Bottle Purchase</span><strong>₹1,60,000</strong></div><div class="bar-track"><div class="bar-fill" data-width="64%"></div></div></div>
+      <div><div class="bar-info"><span>Electricity</span><strong>₹20,000</strong></div><div class="bar-track"><div class="bar-fill" data-width="8%"></div></div></div>
+      <div><div class="bar-info"><span>Salary</span><strong>₹20,000</strong></div><div class="bar-track"><div class="bar-fill" data-width="8%"></div></div></div>
+      <div><div class="bar-info"><span>Transporting</span><strong>₹30,000</strong></div><div class="bar-track"><div class="bar-fill" data-width="12%"></div></div></div>
+      <div><div class="bar-info"><span>Rent</span><strong>₹20,000</strong></div><div class="bar-track"><div class="bar-fill" data-width="8%"></div></div></div>
+    </div>
+  </div>
+
+  <div class="panel section-gap">
+    <div class="panel-title">Monthly Financial Statement</div>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>DESCRIPTION</th><th>CALCULATION</th><th>AMOUNT</th></tr></thead>
+      <tbody>
+        <tr><td>Total Bottles</td><td>2,000 × 10</td><td>20,000</td></tr>
+        <tr><td>Revenue</td><td>20,000 × ₹15</td><td>₹3,00,000</td></tr>
+        <tr><td>Bottle Purchase</td><td>20,000 × ₹8</td><td>₹1,60,000</td></tr>
+        <tr><td>Electricity</td><td>20,000 × ₹1</td><td>₹20,000</td></tr>
+        <tr><td>Salary</td><td>20,000 × ₹1</td><td>₹20,000</td></tr>
+        <tr><td>Transporting</td><td>20,000 × ₹1.50</td><td>₹30,000</td></tr>
+        <tr><td>Rent</td><td>20,000 × ₹1</td><td>₹20,000</td></tr>
+        <tr><td><strong>Total Expenses</strong></td><td>—</td><td><strong>₹2,50,000</strong></td></tr>
+        <tr><td class="positive"><strong>NET PROFIT</strong></td><td>Revenue − Expenses</td><td class="positive"><strong>₹50,000</strong></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- SHOPS -->
+<section class="section" id="shops">
+  <div class="page-heading">
+    <div><div class="eyebrow">DISTRIBUTION NETWORK</div><h1>Shop Distribution</h1>
+    <p class="subheading">Supply planning and retail shop coverage.</p></div>
+  </div>
+
+  <div class="grid cards">
+    <div class="card"><div class="card-label">TOTAL SHOPS</div><div class="card-value">84</div><div class="card-note">Retail distribution network</div></div>
+    <div class="card"><div class="card-label">BOTTLES PER BOX</div><div class="card-value">12</div><div class="card-note">Standard box capacity</div></div>
+    <div class="card"><div class="card-label">BOXES PER SHOP</div><div class="card-value">2</div><div class="card-note">Per supply cycle</div></div>
+    <div class="card highlight"><div class="card-label">BOTTLES PER SHOP</div><div class="card-value">24</div><div class="card-note">12 × 2 boxes</div></div>
+  </div>
+
+  <div class="grid two-col">
+    <div class="panel">
+      <div class="panel-title">Distribution Calculation</div>
+      <div class="stat-row"><span>Total shops</span><strong>84</strong></div>
+      <div class="stat-row"><span>Boxes per shop</span><strong>2</strong></div>
+      <div class="stat-row"><span>Bottles per box</span><strong>12</strong></div>
+      <div class="stat-row"><span>Total boxes per trip</span><strong>168</strong></div>
+      <div class="stat-row"><span>Calculated bottles per trip</span><strong>2,016</strong></div>
+      <div class="stat-row"><span>Scheduled supply target</span><strong>2,000</strong></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Supply Schedule</div>
+      <div class="metric" style="margin-bottom:12px"><small>DELIVERY FREQUENCY</small><strong>Every 3 Days</strong></div>
+      <div class="metric"><small>MONTHLY DELIVERY TRIPS</small><strong>10 Trips</strong></div>
+      <div class="info-box">
+        Distribution formula: 84 shops × 2 boxes × 12 bottles = 2,016 bottles per trip.
+        Your financial plan uses 2,000 bottles per trip. Please confirm which quantity should be the final operating target.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFIT -->
+<section class="section" id="profit">
+  <div class="page-heading">
+    <div><div class="eyebrow">BUSINESS RESULTS</div><h1>Final Profit Summary</h1>
+    <p class="subheading">Complete financial outcome of the planned business model.</p></div>
+  </div>
+
+  <div class="panel highlight" style="padding:35px">
+    <div class="eyebrow">PROJECTED MONTHLY NET PROFIT</div>
+    <div class="big-number counter" data-value="50000">₹0</div>
+    <p style="margin-top:13px;color:white;font-size:13px">Based on 20,000 bottles supplied every month.</p>
+  </div>
+
+  <div class="grid three-col">
+    <div class="metric"><small>PROFIT PER BOTTLE</small><strong>₹2.50</strong></div>
+    <div class="metric"><small>PROFIT PER TRIP</small><strong>₹5,000</strong></div>
+    <div class="metric"><small>MONTHLY PROFIT</small><strong>₹50,000</strong></div>
+  </div>
+
+  <div class="panel section-gap">
+    <div class="panel-title">Final Business Calculation</div>
+    <div class="stat-row"><span>Monthly revenue</span><strong>₹3,00,000</strong></div>
+    <div class="stat-row"><span>Monthly total cost</span><strong>₹2,50,000</strong></div>
+    <div class="stat-row"><span>Monthly net profit</span><strong class="positive">₹50,000</strong></div>
+    <div class="stat-row"><span>Annualized profit at same rate</span><strong>₹6,00,000</strong></div>
+    <div class="info-box">
+      This is a projection based on the supplied cost and sales assumptions. It does not include any additional costs not listed in the plan, such as taxes, loan interest, maintenance, returns, or unexpected losses.
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  PLEXO · BOTTLED WATER SUPPLY & DISTRIBUTION<br><br>
+  PRIVATE BUSINESS FINANCIAL DASHBOARD
+</div>
+
+</main>
+</div>
+
+<script>
+function toggleMenu(){
+  document.getElementById("sidebar").classList.toggle("open");
+}
+
+function showSection(id,button){
+  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+  document.querySelectorAll(".nav").forEach(n=>n.classList.remove("active"));
+
+  document.getElementById(id).classList.add("active");
+  if(button) button.classList.add("active");
+
+  document.getElementById("sidebar").classList.remove("open");
+  window.scrollTo({top:0,behavior:"smooth"});
+
+  animateCharts(document.getElementById(id));
+  animateCounters(document.getElementById(id));
+}
+
+function animateCharts(container){
+  container.querySelectorAll(".bar-fill").forEach(bar=>{
+    bar.style.width="0";
+    requestAnimationFrame(()=>bar.style.width=bar.dataset.width);
+  });
+  container.querySelectorAll(".chart-bar").forEach(bar=>{
+    bar.style.height="0";
+    requestAnimationFrame(()=>bar.style.height=bar.dataset.height);
+  });
+}
+
+function formatINR(value){
+  return "₹"+Math.round(value).toLocaleString("en-IN");
+}
+
+function animateCounters(container){
+  container.querySelectorAll(".counter").forEach(el=>{
+    const target=Number(el.dataset.value);
+    const duration=1100;
+    const start=performance.now();
+    function update(now){
+      const progress=Math.min((now-start)/duration,1);
+      const eased=1-Math.pow(1-progress,3);
+      el.textContent=formatINR(target*eased);
+      if(progress<1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  });
+}
+
+window.addEventListener("load",()=>{
+  const home=document.getElementById("home");
+  animateCharts(home);
+  animateCounters(home);
+});
+</script>
+
+</body>
+</html>

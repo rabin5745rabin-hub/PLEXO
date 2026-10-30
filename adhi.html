@@ -1,0 +1,661 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Adhi | Chief Business Development Officer - PLEXO</title>
+
+<style>
+:root {
+    --bg: #050b1f;
+    --card: #0b1733;
+    --cyan: #22d3ee;
+    --blue: #3478ff;
+    --white: #f5f8ff;
+    --muted: #a6b7d6;
+    --border: rgba(100, 190, 255, 0.22);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--white);
+    background:
+        radial-gradient(ellipse at top left, #10285a, transparent 45%),
+        radial-gradient(ellipse at bottom right, #06395b, transparent 40%),
+        var(--bg);
+    line-height: 1.8;
+    padding: 35px 18px 60px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 55px 25px;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    background: linear-gradient(
+        145deg,
+        rgba(20, 43, 83, 0.92),
+        rgba(7, 18, 43, 0.96)
+    );
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.company-label {
+    display: inline-block;
+    color: var(--cyan);
+    border: 1px solid var(--border);
+    background: rgba(34, 211, 238, 0.07);
+    border-radius: 30px;
+    padding: 8px 20px;
+    letter-spacing: 3px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.avatar {
+    width: 115px;
+    height: 115px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 25px;
+    border-radius: 30px;
+    color: #041126;
+    background: linear-gradient(135deg, var(--cyan), var(--blue));
+    font-size: 48px;
+    font-weight: 800;
+    box-shadow: 0 10px 35px rgba(34, 211, 238, 0.2);
+}
+
+h1 {
+    font-size: clamp(38px, 7vw, 65px);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+h1 span {
+    color: var(--cyan);
+}
+
+.role {
+    color: #67e8f9;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    max-width: 680px;
+    color: var(--muted);
+    margin: auto;
+    font-size: 16px;
+}
+
+.badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.badge {
+    padding: 8px 14px;
+    border-radius: 25px;
+    color: var(--cyan);
+    border: 1px solid var(--border);
+    background: rgba(34, 211, 238, 0.07);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.content {
+    display: grid;
+    gap: 22px;
+    margin-top: 28px;
+}
+
+.section {
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        rgba(14, 31, 64, 0.94),
+        rgba(7, 18, 43, 0.96)
+    );
+}
+
+.section h2 {
+    color: var(--cyan);
+    font-size: 24px;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.section p {
+    color: var(--muted);
+    margin-bottom: 14px;
+    font-size: 15px;
+}
+
+.section p:last-child {
+    margin-bottom: 0;
+}
+
+.section ul {
+    padding-left: 22px;
+    color: var(--muted);
+}
+
+.section li {
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: var(--white);
+    font-weight: bold;
+}
+
+.quote {
+    border-left: 3px solid var(--cyan);
+    padding: 18px 22px;
+    margin-top: 18px;
+    background: rgba(34, 211, 238, 0.05);
+    color: var(--white);
+    font-size: 17px;
+    font-style: italic;
+}
+
+.back-wrapper {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 13px 30px;
+    border: 1px solid var(--cyan);
+    border-radius: 30px;
+    color: var(--white);
+    background: rgba(34, 211, 238, 0.08);
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    color: #041126;
+    background: var(--cyan);
+    transform: translateY(-3px);
+}
+
+footer {
+    text-align: center;
+    margin-top: 35px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 18px 12px 40px;
+    }
+
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .section {
+        padding: 24px 20px;
+    }
+
+    .section h2 {
+        font-size: 21px;
+    }
+
+    .hero-description,
+    .section p {
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+    <!-- ADHI PROFILE HEADER -->
+    <header class="hero">
+        <div class="company-label">PLEXO LEADERSHIP</div>
+
+        <div class="avatar">A</div>
+
+        <h1>Adhi<span>.</span></h1>
+
+        <div class="role">
+            Chief Business Development Officer (CBDO)
+        </div>
+
+        <p class="hero-description">
+            A key member of the PLEXO leadership team, focused on
+            business development, sales growth, customer relationships,
+            distribution opportunities, and strategic partnerships.
+        </p>
+
+        <div class="badges">
+            <span class="badge">BUSINESS DEVELOPMENT</span>
+            <span class="badge">SALES & MARKETING</span>
+            <span class="badge">DISTRIBUTION</span>
+            <span class="badge">PARTNERSHIPS</span>
+        </div>
+    </header>
+
+    <div class="content">
+
+        <!-- ABOUT ADHI -->
+        <section class="section">
+            <h2>01. About Adhi</h2>
+
+            <p>
+                Adhi holds the position of Chief Business Development
+                Officer at PLEXO. His role focuses on identifying
+                opportunities that can help the company reach new
+                customers, develop business relationships, and
+                expand into new markets.
+            </p>
+
+            <p>
+                Business development is an important part of building
+                a successful organization. It involves understanding
+                customer needs, identifying market opportunities,
+                developing partnerships, and helping turn business
+                ideas into practical growth opportunities.
+            </p>
+
+            <p>
+                Within PLEXO, the CBDO position represents the
+                company's focus on market expansion, customer
+                relationships, sales opportunities, and sustainable
+                business development.
+            </p>
+        </section>
+
+        <!-- RESPONSIBILITIES -->
+        <section class="section">
+            <h2>02. Role and Responsibilities</h2>
+
+            <p>
+                The Chief Business Development Officer helps the
+                company identify opportunities, build relationships,
+                and develop strategies for business growth.
+            </p>
+
+            <ul>
+                <li>
+                    <span class="highlight">Business Development:</span>
+                    Identifying potential customers, new markets,
+                    and opportunities to expand PLEXO's business.
+                </li>
+
+                <li>
+                    <span class="highlight">Sales Growth:</span>
+                    Supporting sales planning and developing
+                    approaches to reach potential customers.
+                </li>
+
+                <li>
+                    <span class="highlight">Distribution:</span>
+                    Exploring distribution channels, retailer
+                    relationships, delivery networks, and ways
+                    to make products more accessible.
+                </li>
+
+                <li>
+                    <span class="highlight">Customer Relationships:</span>
+                    Building professional relationships with
+                    customers and understanding their requirements.
+                </li>
+
+                <li>
+                    <span class="highlight">Strategic Partnerships:</span>
+                    Identifying businesses and organizations
+                    that may offer useful partnerships.
+                </li>
+
+                <li>
+                    <span class="highlight">Market Research:</span>
+                    Understanding customer preferences, market
+                    conditions, and business opportunities.
+                </li>
+
+                <li>
+                    <span class="highlight">Growth Planning:</span>
+                    Working with company leadership to support
+                    business expansion and long-term objectives.
+                </li>
+            </ul>
+        </section>
+
+        <!-- SALES -->
+        <section class="section">
+            <h2>03. Sales and Market Expansion</h2>
+
+            <p>
+                Sales help connect a company's products and services
+                with the people who need them. A strong sales strategy
+                requires understanding the market, communicating
+                product value, and building trust with customers.
+            </p>
+
+            <p>
+                Adhi's role at PLEXO focuses on supporting sales
+                opportunities, developing customer connections,
+                and exploring ways to introduce the company's
+                offerings to a wider audience.
+            </p>
+
+            <p>
+                Market expansion requires careful planning.
+                Understanding local demand, identifying suitable
+                customer groups, and maintaining professional
+                relationships can help the company make informed
+                decisions about where and how to grow.
+            </p>
+        </section>
+
+        <!-- DISTRIBUTION -->
+        <section class="section">
+            <h2>04. Distribution and Business Networks</h2>
+
+            <p>
+                Distribution connects products with customers
+                through retailers, dealers, business partners,
+                and delivery channels. An organized distribution
+                network can help a company serve customers more
+                efficiently and expand its reach.
+            </p>
+
+            <p>
+                Business development can support this process by
+                identifying potential distributors, developing
+                retailer relationships, exploring new supply
+                opportunities, and helping evaluate possible
+                distribution arrangements.
+            </p>
+
+            <p>
+                For PLEXO, building reliable business networks
+                can contribute to stronger market access and
+                better coordination between the company,
+                its partners, and its customers.
+            </p>
+        </section>
+
+        <!-- CUSTOMER RELATIONSHIPS -->
+        <section class="section">
+            <h2>05. Customer Relationships and Trust</h2>
+
+            <p>
+                Customer trust is one of the foundations of
+                long-term business success. Professional communication,
+                honest information, consistent service, and a
+                willingness to understand customer needs all
+                contribute to lasting relationships.
+            </p>
+
+            <p>
+                The CBDO role supports customer relationship
+                development by helping the company understand
+                customer expectations, respond to business inquiries,
+                and identify opportunities for continued cooperation.
+            </p>
+
+            <p>
+                Strong relationships are built over time through
+                reliability and mutual respect. By maintaining
+                a customer-focused approach, PLEXO can work toward
+                developing a positive and trustworthy reputation.
+            </p>
+        </section>
+
+        <!-- PARTNERSHIPS -->
+        <section class="section">
+            <h2>06. Partnerships and Networking</h2>
+
+            <p>
+                Partnerships can create opportunities for businesses
+                to share resources, reach new customers, and develop
+                mutually beneficial relationships. Effective
+                networking helps companies discover these
+                opportunities and understand how cooperation
+                may support their objectives.
+            </p>
+
+            <p>
+                Adhi's business development function includes
+                exploring potential partnerships, maintaining
+                professional communication, and helping assess
+                opportunities that align with PLEXO's direction.
+            </p>
+
+            <p>
+                Successful partnerships require clear expectations,
+                responsible decisions, and mutual trust. Careful
+                evaluation helps ensure that business relationships
+                are appropriate for the company's goals.
+            </p>
+        </section>
+
+        <!-- STRATEGY -->
+        <section class="section">
+            <h2>07. Business Strategy and Planning</h2>
+
+            <p>
+                Business growth requires more than finding new
+                customers. It also requires understanding costs,
+                evaluating opportunities, considering competition,
+                and choosing realistic priorities.
+            </p>
+
+            <p>
+                The CBDO role contributes to business planning by
+                gathering market information, identifying potential
+                opportunities, and working with the leadership
+                team to consider suitable growth strategies.
+            </p>
+
+            <p>
+                A thoughtful strategy helps a company focus its
+                efforts, use resources responsibly, and pursue
+                opportunities that support its long-term direction.
+            </p>
+        </section>
+
+        <!-- COMMUNICATION -->
+        <section class="section">
+            <h2>08. Communication and Teamwork</h2>
+
+            <p>
+                Business development involves working with people
+                across different areas of an organization. Clear
+                communication helps ensure that customer needs,
+                sales opportunities, and market feedback are
+                shared with the appropriate team members.
+            </p>
+
+            <p>
+                Cooperation with the CEO, COO, finance function,
+                and other team members can help align business
+                opportunities with operational capacity and
+                company priorities.
+            </p>
+
+            <p>
+                A collaborative approach supports better planning
+                and helps the company make decisions based on
+                shared information and common objectives.
+            </p>
+        </section>
+
+        <!-- PROFESSIONAL VALUES -->
+        <section class="section">
+            <h2>09. Professional Values</h2>
+
+            <ul>
+                <li>
+                    <span class="highlight">Integrity:</span>
+                    Communicating honestly and maintaining
+                    professional standards.
+                </li>
+
+                <li>
+                    <span class="highlight">Customer Focus:</span>
+                    Understanding customer requirements and
+                    supporting positive business relationships.
+                </li>
+
+                <li>
+                    <span class="highlight">Initiative:</span>
+                    Looking for opportunities and taking
+                    constructive steps toward business goals.
+                </li>
+
+                <li>
+                    <span class="highlight">Cooperation:</span>
+                    Working effectively with colleagues,
+                    customers, and business partners.
+                </li>
+
+                <li>
+                    <span class="highlight">Adaptability:</span>
+                    Responding thoughtfully to changing
+                    customer needs and market conditions.
+                </li>
+
+                <li>
+                    <span class="highlight">Continuous Learning:</span>
+                    Staying open to feedback, new ideas,
+                    and better business practices.
+                </li>
+            </ul>
+        </section>
+
+        <!-- PLEXO VISION -->
+        <section class="section">
+            <h2>10. Supporting the Vision of PLEXO</h2>
+
+            <p>
+                PLEXO aims to develop into a trusted business
+                through quality, customer satisfaction, teamwork,
+                and responsible growth. Business development
+                supports this direction by helping identify
+                opportunities and build meaningful market connections.
+            </p>
+
+            <p>
+                Expanding a business requires a balance between
+                ambition and careful planning. New markets,
+                customers, and partnerships should be considered
+                in relation to the company's capabilities and
+                long-term objectives.
+            </p>
+
+            <p>
+                Through market awareness, customer engagement,
+                and strategic cooperation, the business development
+                function can help PLEXO work toward a stronger
+                position in its chosen markets.
+            </p>
+        </section>
+
+        <!-- FUTURE -->
+        <section class="section">
+            <h2>11. Future Growth and Opportunities</h2>
+
+            <p>
+                As PLEXO develops, new business opportunities may
+                emerge through customer demand, distribution
+                networks, partnerships, and changing market needs.
+                Identifying these opportunities can help the
+                company plan its next steps.
+            </p>
+
+            <p>
+                Sustainable growth depends on understanding
+                customers, managing resources responsibly,
+                maintaining service quality, and building
+                relationships that create long-term value.
+            </p>
+
+            <p>
+                The CBDO function supports these goals by helping
+                the company explore opportunities, develop business
+                connections, and work with the leadership team
+                to turn suitable ideas into practical plans.
+            </p>
+        </section>
+
+        <!-- CLOSING MESSAGE -->
+        <section class="section">
+            <h2>12. A Message About Business Growth</h2>
+
+            <p>
+                Every successful business begins with an idea,
+                but lasting growth depends on understanding people,
+                building trust, recognizing opportunities, and
+                working consistently toward clear objectives.
+            </p>
+
+            <p>
+                The Chief Business Development Officer plays
+                an important role in connecting the company
+                with its customers, partners, and potential markets.
+                At PLEXO, this role supports the wider effort
+                to build strong business relationships and
+                create opportunities for future development.
+            </p>
+
+            <div class="quote">
+                "Business growth begins with opportunity,
+                develops through relationships, and becomes
+                sustainable through trust and consistent effort."
+            </div>
+        </section>
+
+    </div>
+
+    <div class="back-wrapper">
+        <button class="back-button" onclick="history.back()">
+            &#8592; Back to Team
+        </button>
+    </div>
+
+    <footer>
+        PLEXO | LEADERSHIP & MANAGEMENT
+    </footer>
+
+</main>
+
+</body>
+</html>

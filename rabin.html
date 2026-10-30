@@ -1,0 +1,609 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rabin | Founder & CEO</title>
+
+<style>
+:root {
+    --bg: #050b1f;
+    --panel: #0c1935;
+    --cyan: #22d3ee;
+    --blue: #3478ff;
+    --white: #f4f8ff;
+    --muted: #b1c0dc;
+    --border: rgba(100, 190, 255, 0.22);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--white);
+    background:
+        radial-gradient(ellipse at top left, #122c5b, transparent 45%),
+        radial-gradient(ellipse at bottom right, #073454, transparent 40%),
+        var(--bg);
+    line-height: 1.8;
+    min-height: 100vh;
+}
+
+.container {
+    width: min(1050px, 92%);
+    margin: auto;
+}
+
+header {
+    padding: 25px 0;
+    border-bottom: 1px solid var(--border);
+    background: rgba(5, 11, 31, 0.65);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: var(--cyan);
+}
+
+.small-label {
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.hero {
+    padding: 85px 0 50px;
+    text-align: center;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 25px;
+    border-radius: 32px;
+    background: linear-gradient(135deg, var(--cyan), var(--blue));
+    color: #061126;
+    font-size: 55px;
+    font-weight: 900;
+    box-shadow: 0 0 45px rgba(34, 211, 238, 0.2);
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 17px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    color: var(--cyan);
+    background: rgba(34, 211, 238, 0.07);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(40px, 7vw, 68px);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+h1 span {
+    color: var(--cyan);
+}
+
+.position {
+    color: var(--cyan);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.hero-description {
+    max-width: 700px;
+    margin: 22px auto 0;
+    color: var(--muted);
+}
+
+.profile {
+    padding: 25px 0 70px;
+}
+
+.profile-card {
+    background: linear-gradient(
+        145deg,
+        rgba(15, 34, 68, 0.94),
+        rgba(8, 19, 42, 0.97)
+    );
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    padding: clamp(24px, 5vw, 50px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+}
+
+.profile-card h2 {
+    color: var(--cyan);
+    font-size: 25px;
+    margin: 35px 0 12px;
+    line-height: 1.4;
+}
+
+.profile-card h2:first-child {
+    margin-top: 0;
+}
+
+.profile-card p {
+    color: var(--muted);
+    margin-bottom: 17px;
+    font-size: 15px;
+}
+
+.quote {
+    margin: 30px 0;
+    padding: 24px;
+    border-left: 4px solid var(--cyan);
+    background: rgba(34, 211, 238, 0.06);
+    border-radius: 0 14px 14px 0;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.values {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.value {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.value h3 {
+    color: var(--cyan);
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.value p {
+    font-size: 13px;
+    margin: 0;
+}
+
+.team {
+    padding: 25px 0 65px;
+}
+
+.team h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.team-member {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.team-member strong {
+    display: block;
+    font-size: 18px;
+}
+
+.team-member span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.back-area {
+    text-align: center;
+    padding: 0 0 55px;
+}
+
+.back-button {
+    padding: 13px 32px;
+    border-radius: 30px;
+    border: 1px solid var(--cyan);
+    color: var(--white);
+    background: rgba(34, 211, 238, 0.08);
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.back-button:hover {
+    background: var(--cyan);
+    color: #061126;
+    transform: translateY(-2px);
+}
+
+footer {
+    text-align: center;
+    border-top: 1px solid var(--border);
+    padding: 25px 15px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+@media (max-width: 650px) {
+    .values,
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 55px;
+    }
+
+    .profile-card {
+        padding: 25px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+        <div class="brand">PLEXO</div>
+        <div class="small-label">LEADERSHIP PROFILE</div>
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="container">
+
+            <div class="avatar">R</div>
+
+            <div class="badge">FOUNDER & CEO</div>
+
+            <h1>Rabin <span></span>A</span></h1>
+
+            <div class="position">
+                Founder & Chief Executive Officer
+            </div>
+
+            <p class="hero-description">
+                A leader focused on building a strong company,
+                developing new opportunities, bringing people together,
+                and creating a business with a clear long-term vision.
+            </p>
+
+        </div>
+    </section>
+
+    <section class="profile">
+        <div class="container">
+            <article class="profile-card">
+
+                <h2>1. About Rabin</h2>
+
+                <p>
+                    Rabin is the Founder and Chief Executive Officer of
+                    PLEXO, with an ambition to build a professional,
+                    responsible, and growth-oriented company. His leadership
+                    profile represents a commitment to learning, planning,
+                    teamwork, and the continuous development of business
+                    ideas into practical opportunities.
+                </p>
+
+                <p>
+                    As a founder, Rabin's role is to help define the
+                    company's direction, identify its priorities, and
+                    establish the principles that guide its growth. He
+                    believes that a successful company needs more than
+                    an idea. It needs a clear purpose, consistent effort,
+                    responsible decisions, and a team that understands
+                    what it is working to achieve.
+                </p>
+
+                <p>
+                    His ambition is to build a company that can grow
+                    step by step, develop lasting relationships, and
+                    create value for customers, employees, business
+                    partners, and the wider community.
+                </p>
+
+                <h2>2. Leadership and Responsibility</h2>
+
+                <p>
+                    As CEO, Rabin is responsible for guiding the company's
+                    overall vision and helping coordinate its major
+                    business priorities. This includes setting goals,
+                    reviewing opportunities, understanding challenges,
+                    and encouraging the team to work toward shared
+                    objectives.
+                </p>
+
+                <p>
+                    Effective leadership also means listening to different
+                    opinions, considering available information, and
+                    making decisions with care. Rabin's leadership
+                    approach is presented around accountability,
+                    cooperation, discipline, and a willingness to learn
+                    from experience.
+                </p>
+
+                <p>
+                    A strong leader does not need to do every task alone.
+                    A strong leader builds a team, gives people clear
+                    responsibilities, encourages good ideas, and helps
+                    everyone understand how their work contributes to
+                    the company's progress.
+                </p>
+
+                <h2>3. Vision for PLEXO</h2>
+
+                <p>
+                    Rabin's vision for PLEXO is to develop a company
+                    that can explore business opportunities, deliver
+                    dependable products and services, and earn customer
+                    trust through quality and consistency. The long-term
+                    ambition is to build a recognizable and respected
+                    business through careful planning and steady growth.
+                </p>
+
+                <p>
+                    The company can pursue this vision by understanding
+                    customer needs, researching its markets, maintaining
+                    suitable quality standards, and managing its
+                    resources responsibly. Rather than depending only
+                    on short-term results, sustainable growth requires
+                    patience, preparation, and a willingness to improve.
+                </p>
+
+                <p>
+                    For Rabin, the future of PLEXO depends on combining
+                    ambition with practical action. Every new opportunity
+                    should be evaluated carefully, with attention to
+                    customer value, business costs, operational
+                    requirements, and long-term potential.
+                </p>
+
+                <div class="quote">
+                    “Build with purpose. Lead with responsibility.
+                    Grow through teamwork.”
+                </div>
+
+                <h2>4. Business Strategy and Decision-Making</h2>
+
+                <p>
+                    Business development requires understanding the
+                    difference between an attractive idea and a
+                    workable business opportunity. Rabin's role as
+                    founder is to encourage research, realistic planning,
+                    and thoughtful decisions before the company commits
+                    its time and resources.
+                </p>
+
+                <p>
+                    A sound strategy considers customer demand, pricing,
+                    costs, competition, product quality, distribution,
+                    and financial sustainability. Reviewing these areas
+                    can help the company identify risks, set priorities,
+                    and choose a practical direction for development.
+                </p>
+
+                <p>
+                    Decision-making also involves reviewing results.
+                    When a plan works, the company can identify what
+                    contributed to its success. When a plan does not
+                    achieve its intended outcome, the team can study
+                    the reasons and make improvements. This process
+                    encourages learning rather than repeating the same
+                    mistakes.
+                </p>
+
+                <h2>5. Teamwork and Company Culture</h2>
+
+                <p>
+                    Rabin recognizes the importance of building a team
+                    in which every member understands their role and
+                    contributes to the company's shared objectives.
+                    Different people bring different skills, ideas,
+                    experiences, and strengths. When these qualities
+                    work together, they can help a company solve
+                    problems and discover new opportunities.
+                </p>
+
+                <p>
+                    A professional working environment should encourage
+                    mutual respect, honest communication, responsibility,
+                    and cooperation. Team members should have clear
+                    expectations and the opportunity to share useful
+                    suggestions. Problems should be addressed directly
+                    and respectfully, with the focus kept on finding
+                    practical solutions.
+                </p>
+
+                <p>
+                    As CEO, Rabin's responsibility is to help establish
+                    this environment, support effective coordination,
+                    and keep the company focused on its priorities.
+                    Strong teamwork is not simply about working
+                    together; it is about sharing responsibility
+                    and moving in the same direction.
+                </p>
+
+                <h2>6. Customer Trust and Quality</h2>
+
+                <p>
+                    Long-term business success depends on customer
+                    confidence. A company earns that confidence by
+                    understanding what customers need, communicating
+                    clearly, maintaining consistent standards, and
+                    responding responsibly when problems arise.
+                </p>
+
+                <p>
+                    Rabin's leadership profile emphasizes the importance
+                    of putting customer value at the center of business
+                    decisions. Quality should be considered from the
+                    earliest stages of planning through production,
+                    delivery, customer support, and continuous
+                    improvement.
+                </p>
+
+                <p>
+                    Trust takes time to establish and can be damaged
+                    by careless promises. For that reason, a responsible
+                    company should make realistic commitments, provide
+                    accurate information, and work to deliver what
+                    it promises.
+                </p>
+
+                <h2>7. Learning, Adaptability, and Improvement</h2>
+
+                <p>
+                    Every growing business faces new challenges.
+                    Markets change, customer expectations develop,
+                    and new technologies create different ways of
+                    working. A company that remains willing to learn
+                    can respond more effectively to these changes.
+                </p>
+
+                <p>
+                    Rabin's professional development can be supported
+                    by studying business management, communication,
+                    finance, operations, customer relationships, and
+                    leadership. Learning from experienced professionals
+                    and reviewing the results of business decisions
+                    can also improve future planning.
+                </p>
+
+                <p>
+                    Adaptability does not mean changing direction
+                    without reason. It means understanding new
+                    information, recognizing when improvements are
+                    necessary, and making informed adjustments
+                    without losing sight of the company's purpose.
+                </p>
+
+                <h2>8. Long-Term Goals</h2>
+
+                <p>
+                    Rabin's long-term ambition is to help PLEXO develop
+                    into a stable, trusted, and professionally managed
+                    company. Achieving that ambition requires clear
+                    milestones, responsible financial management,
+                    capable people, reliable processes, and a
+                    consistent commitment to improvement.
+                </p>
+
+                <p>
+                    Future progress can be measured through meaningful
+                    indicators such as customer satisfaction, product
+                    quality, financial performance, operational
+                    efficiency, team development, and sustainable
+                    business growth. These indicators can help the
+                    company understand its progress and identify
+                    areas that need further attention.
+                </p>
+
+                <p>
+                    For Rabin, building a company is a continuing
+                    responsibility. It requires patience, courage
+                    to address challenges, openness to learning,
+                    and the discipline to turn plans into action.
+                    The goal is not simply to establish a business,
+                    but to develop an organization capable of
+                    creating lasting value.
+                </p>
+
+                <h2>9. A Message from the Founder</h2>
+
+                <p>
+                    “My vision is to build PLEXO with a clear purpose,
+                    a strong team, and a commitment to continuous
+                    improvement. I believe that meaningful progress
+                    comes from learning, working consistently,
+                    respecting people, and making responsible decisions.
+                </p>
+
+                <p>
+                    Every successful company begins with an idea,
+                    but its future depends on the people who work
+                    to make that idea real. My goal is to keep
+                    learning, strengthen our team, explore new
+                    opportunities, and build a company that earns
+                    trust through its actions.
+                </p>
+
+                <p>
+                    Together, we can work toward a future in which
+                    PLEXO continues to grow, improve, and create
+                    opportunities for the people connected to it.”
+                </p>
+
+            </article>
+        </div>
+    </section>
+
+    <section class="team">
+        <div class="container">
+            <h2>Our Leadership Team</h2>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <strong>Rijo</strong>
+                    <span>Chief Operating Officer</span>
+                </div>
+
+                <div class="team-member">
+                    <strong>Adhi</strong>
+                    <span>Chief Business Development Officer</span>
+                </div>
+
+                <div class="team-member">
+                    <strong>Fasil</strong>
+                    <span>Chief Financial Officer</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="back-area">
+        <button class="back-button" onclick="history.back()">
+            ← Back
+        </button>
+    </div>
+
+</main>
+
+<footer>
+    PLEXO | Leadership & Vision
+</footer>
+
+</body>
+</html>

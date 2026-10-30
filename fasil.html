@@ -1,0 +1,685 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fasil | Chief Financial Officer - PLEXO</title>
+
+<style>
+:root {
+    --bg: #050b1f;
+    --card: #0b1733;
+    --cyan: #22d3ee;
+    --blue: #3478ff;
+    --white: #f5f8ff;
+    --muted: #a6b7d6;
+    --border: rgba(100, 190, 255, 0.22);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--white);
+    background:
+        radial-gradient(ellipse at top left, #10285a, transparent 45%),
+        radial-gradient(ellipse at bottom right, #06395b, transparent 40%),
+        var(--bg);
+    line-height: 1.8;
+    padding: 35px 18px 60px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 55px 25px;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    background: linear-gradient(
+        145deg,
+        rgba(20, 43, 83, 0.92),
+        rgba(7, 18, 43, 0.96)
+    );
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.company-label {
+    display: inline-block;
+    color: var(--cyan);
+    border: 1px solid var(--border);
+    background: rgba(34, 211, 238, 0.07);
+    border-radius: 30px;
+    padding: 8px 20px;
+    letter-spacing: 3px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.avatar {
+    width: 115px;
+    height: 115px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 25px;
+    border-radius: 30px;
+    color: #041126;
+    background: linear-gradient(135deg, var(--cyan), var(--blue));
+    font-size: 48px;
+    font-weight: 800;
+    box-shadow: 0 10px 35px rgba(34, 211, 238, 0.2);
+}
+
+h1 {
+    font-size: clamp(38px, 7vw, 65px);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+h1 span {
+    color: var(--cyan);
+}
+
+.role {
+    color: #67e8f9;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    max-width: 680px;
+    color: var(--muted);
+    margin: auto;
+    font-size: 16px;
+}
+
+.badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.badge {
+    padding: 8px 14px;
+    border-radius: 25px;
+    color: var(--cyan);
+    border: 1px solid var(--border);
+    background: rgba(34, 211, 238, 0.07);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.content {
+    display: grid;
+    gap: 22px;
+    margin-top: 28px;
+}
+
+.section {
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        rgba(14, 31, 64, 0.94),
+        rgba(7, 18, 43, 0.96)
+    );
+}
+
+.section h2 {
+    color: var(--cyan);
+    font-size: 24px;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.section p {
+    color: var(--muted);
+    margin-bottom: 14px;
+    font-size: 15px;
+}
+
+.section p:last-child {
+    margin-bottom: 0;
+}
+
+.section ul {
+    padding-left: 22px;
+    color: var(--muted);
+}
+
+.section li {
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: var(--white);
+    font-weight: bold;
+}
+
+.quote {
+    border-left: 3px solid var(--cyan);
+    padding: 18px 22px;
+    margin-top: 18px;
+    background: rgba(34, 211, 238, 0.05);
+    color: var(--white);
+    font-size: 17px;
+    font-style: italic;
+}
+
+.back-wrapper {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 13px 30px;
+    border: 1px solid var(--cyan);
+    border-radius: 30px;
+    color: var(--white);
+    background: rgba(34, 211, 238, 0.08);
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    color: #041126;
+    background: var(--cyan);
+    transform: translateY(-3px);
+}
+
+footer {
+    text-align: center;
+    margin-top: 35px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 18px 12px 40px;
+    }
+
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .section {
+        padding: 24px 20px;
+    }
+
+    .section h2 {
+        font-size: 21px;
+    }
+
+    .hero-description,
+    .section p {
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+    <!-- FASIL PROFILE HEADER -->
+    <header class="hero">
+        <div class="company-label">PLEXO LEADERSHIP</div>
+
+        <div class="avatar">F</div>
+
+        <h1>Fasil<span>.</span></h1>
+
+        <div class="role">
+            Chief Financial Officer (CFO)
+        </div>
+
+        <p class="hero-description">
+            A key member of the PLEXO leadership team, focused on
+            financial planning, budgeting, cost management,
+            financial reporting, and responsible business growth.
+        </p>
+
+        <div class="badges">
+            <span class="badge">FINANCIAL PLANNING</span>
+            <span class="badge">BUDGETING</span>
+            <span class="badge">COST CONTROL</span>
+            <span class="badge">FINANCIAL STRATEGY</span>
+        </div>
+    </header>
+
+    <div class="content">
+
+        <!-- ABOUT FASIL -->
+        <section class="section">
+            <h2>01. About Fasil</h2>
+
+            <p>
+                Fasil holds the position of Chief Financial Officer
+                at PLEXO. The CFO function focuses on helping the
+                company understand its financial position, plan
+                its spending, manage financial risks, and make
+                informed decisions about business growth.
+            </p>
+
+            <p>
+                Financial management is an important part of
+                building a stable organization. A company needs
+                to understand its income, expenses, cash flow,
+                operating costs, and financial commitments.
+                Careful planning helps the leadership team
+                evaluate opportunities and use resources responsibly.
+            </p>
+
+            <p>
+                Within PLEXO, the CFO position represents a
+                commitment to financial discipline, transparency,
+                organized planning, and long-term sustainability.
+            </p>
+        </section>
+
+        <!-- RESPONSIBILITIES -->
+        <section class="section">
+            <h2>02. Role and Responsibilities</h2>
+
+            <p>
+                The Chief Financial Officer supports the company's
+                financial planning and helps the leadership team
+                understand the financial impact of business decisions.
+            </p>
+
+            <ul>
+                <li>
+                    <span class="highlight">Financial Planning:</span>
+                    Helping prepare financial plans that support
+                    the company's objectives and future development.
+                </li>
+
+                <li>
+                    <span class="highlight">Budget Management:</span>
+                    Preparing and reviewing budgets for expected
+                    income, expenses, and operational requirements.
+                </li>
+
+                <li>
+                    <span class="highlight">Cost Control:</span>
+                    Monitoring costs and identifying opportunities
+                    to use company resources more efficiently.
+                </li>
+
+                <li>
+                    <span class="highlight">Financial Reporting:</span>
+                    Supporting the preparation and review of
+                    accurate financial records and reports.
+                </li>
+
+                <li>
+                    <span class="highlight">Cash Flow Management:</span>
+                    Monitoring incoming and outgoing funds to
+                    support day-to-day business requirements.
+                </li>
+
+                <li>
+                    <span class="highlight">Risk Awareness:</span>
+                    Helping identify financial risks and consider
+                    appropriate measures to manage them.
+                </li>
+
+                <li>
+                    <span class="highlight">Business Analysis:</span>
+                    Reviewing costs, revenue, and financial
+                    information to support informed decisions.
+                </li>
+            </ul>
+        </section>
+
+        <!-- BUDGET -->
+        <section class="section">
+            <h2>03. Budgeting and Resource Management</h2>
+
+            <p>
+                A budget provides a structured plan for how a
+                company expects to earn and spend money. It helps
+                management set priorities, estimate expenses,
+                and plan for future requirements.
+            </p>
+
+            <p>
+                The CFO function supports budget preparation and
+                monitoring by comparing planned spending with
+                actual expenses. This can help the company identify
+                unexpected costs and adjust its plans when needed.
+            </p>
+
+            <p>
+                Responsible budgeting also means understanding
+                which expenses are essential, which investments
+                can support growth, and how available funds
+                should be allocated across business activities.
+            </p>
+        </section>
+
+        <!-- COST CONTROL -->
+        <section class="section">
+            <h2>04. Cost Control and Profitability</h2>
+
+            <p>
+                Understanding costs is essential for evaluating
+                the financial performance of a business. Product
+                costs, transportation, salaries, rent, electricity,
+                packaging, and other operating expenses can all
+                affect profitability.
+            </p>
+
+            <p>
+                Effective cost management involves recording
+                expenses, reviewing spending patterns, and
+                identifying reasonable opportunities to improve
+                efficiency without compromising product quality
+                or customer satisfaction.
+            </p>
+
+            <p>
+                The CFO function helps the company assess the
+                relationship between revenue, costs, and profit.
+                Reliable financial information supports better
+                pricing decisions and more realistic business plans.
+            </p>
+        </section>
+
+        <!-- CASH FLOW -->
+        <section class="section">
+            <h2>05. Cash Flow and Financial Stability</h2>
+
+            <p>
+                Cash flow refers to money moving into and out
+                of a business. A company may generate sales but
+                still experience financial pressure if customers
+                pay late or expenses become due before sufficient
+                funds are available.
+            </p>
+
+            <p>
+                Cash flow planning helps management prepare
+                for regular expenses, supplier payments, salaries,
+                transportation, and other financial commitments.
+                It also supports decisions about when the company
+                can responsibly invest in new opportunities.
+            </p>
+
+            <p>
+                Maintaining financial stability requires regular
+                monitoring, realistic forecasts, and careful
+                attention to payment schedules and available funds.
+            </p>
+        </section>
+
+        <!-- RECORDS -->
+        <section class="section">
+            <h2>06. Accounting and Financial Records</h2>
+
+            <p>
+                Accurate financial records help a company
+                understand its performance and maintain clear
+                information about its transactions. Sales,
+                purchases, payments, receipts, and expenses
+                should be recorded in an organized manner.
+            </p>
+
+            <p>
+                The CFO function supports reliable reporting
+                and encourages appropriate financial procedures.
+                Good records help management review performance,
+                prepare budgets, and understand the company's
+                financial position.
+            </p>
+
+            <p>
+                Where required, the company should work with
+                qualified accounting professionals to support
+                statutory reporting, taxation, audits, and
+                compliance with applicable laws and regulations.
+            </p>
+        </section>
+
+        <!-- FINANCIAL RISK -->
+        <section class="section">
+            <h2>07. Financial Risk and Responsible Decisions</h2>
+
+            <p>
+                Business decisions often involve financial risks.
+                Investments, expansion plans, borrowing, and
+                changes in operating costs can affect a company's
+                financial position.
+            </p>
+
+            <p>
+                A responsible financial approach includes
+                evaluating available information, considering
+                different outcomes, understanding commitments,
+                and avoiding assumptions that could place
+                unnecessary pressure on the business.
+            </p>
+
+            <p>
+                Financial risk awareness helps the leadership
+                team compare opportunities carefully and make
+                decisions that align with the company's resources
+                and long-term priorities.
+            </p>
+        </section>
+
+        <!-- STRATEGY -->
+        <section class="section">
+            <h2>08. Financial Strategy and Business Growth</h2>
+
+            <p>
+                Growth requires financial planning. Before
+                entering a new market, introducing a product,
+                purchasing equipment, or expanding distribution,
+                a company should understand the expected costs
+                and possible financial outcomes.
+            </p>
+
+            <p>
+                The CFO function helps evaluate these decisions
+                by reviewing budgets, estimating financial needs,
+                and considering how proposed investments may
+                affect cash flow and profitability.
+            </p>
+
+            <p>
+                Financial strategy connects the company's
+                available resources with its ambitions. Careful
+                planning can help PLEXO pursue opportunities
+                while maintaining financial responsibility.
+            </p>
+        </section>
+
+        <!-- TEAMWORK -->
+        <section class="section">
+            <h2>09. Working With the PLEXO Leadership Team</h2>
+
+            <p>
+                Financial decisions affect every part of a
+                business. The CEO provides overall leadership,
+                the COO supports operations, and the business
+                development function explores sales and market
+                opportunities.
+            </p>
+
+            <p>
+                The CFO function supports these activities by
+                providing financial information, evaluating
+                costs, reviewing budgets, and helping the team
+                understand the financial implications of its plans.
+            </p>
+
+            <p>
+                Cooperation between leadership functions helps
+                ensure that growth plans are considered alongside
+                operational needs, available resources, and
+                financial commitments.
+            </p>
+        </section>
+
+        <!-- VALUES -->
+        <section class="section">
+            <h2>10. Professional Values</h2>
+
+            <ul>
+                <li>
+                    <span class="highlight">Accuracy:</span>
+                    Maintaining careful and reliable financial
+                    information.
+                </li>
+
+                <li>
+                    <span class="highlight">Integrity:</span>
+                    Supporting honest reporting and responsible
+                    financial decisions.
+                </li>
+
+                <li>
+                    <span class="highlight">Accountability:</span>
+                    Encouraging clear responsibilities and
+                    appropriate financial controls.
+                </li>
+
+                <li>
+                    <span class="highlight">Confidentiality:</span>
+                    Handling sensitive business and financial
+                    information appropriately.
+                </li>
+
+                <li>
+                    <span class="highlight">Discipline:</span>
+                    Following budgets, reviewing expenses,
+                    and monitoring financial commitments.
+                </li>
+
+                <li>
+                    <span class="highlight">Continuous Improvement:</span>
+                    Looking for better methods to manage
+                    financial information and resources.
+                </li>
+            </ul>
+        </section>
+
+        <!-- PLEXO VISION -->
+        <section class="section">
+            <h2>11. Supporting the Vision of PLEXO</h2>
+
+            <p>
+                PLEXO aims to develop through customer trust,
+                quality, teamwork, and responsible business
+                growth. Financial management supports this
+                direction by helping the company plan carefully
+                and understand the resources required for success.
+            </p>
+
+            <p>
+                A strong financial foundation can help a business
+                prepare for operating expenses, assess investment
+                opportunities, manage uncertainty, and make
+                decisions based on reliable information.
+            </p>
+
+            <p>
+                The CFO function supports the company's long-term
+                objectives by promoting financial discipline,
+                clear reporting, responsible budgeting, and
+                thoughtful evaluation of business opportunities.
+            </p>
+        </section>
+
+        <!-- FUTURE -->
+        <section class="section">
+            <h2>12. Future Financial Development</h2>
+
+            <p>
+                As PLEXO grows, its financial needs may become
+                more complex. The company may need more detailed
+                budgets, improved accounting systems, regular
+                financial reviews, and clearer reporting procedures.
+            </p>
+
+            <p>
+                Planning for these needs can help the company
+                remain organized as its products, customers,
+                operations, and business relationships expand.
+            </p>
+
+            <p>
+                A forward-looking financial approach helps
+                management understand its options, prepare
+                for future commitments, and work toward
+                sustainable growth.
+            </p>
+        </section>
+
+        <!-- CLOSING MESSAGE -->
+        <section class="section">
+            <h2>13. A Message About Financial Responsibility</h2>
+
+            <p>
+                Financial strength is not measured only by
+                revenue. It also depends on how effectively
+                a company manages costs, plans its resources,
+                understands its risks, and prepares for the future.
+            </p>
+
+            <p>
+                The Chief Financial Officer plays an important
+                role in supporting these responsibilities.
+                At PLEXO, the CFO function helps connect financial
+                information with business planning and responsible
+                decision-making.
+            </p>
+
+            <div class="quote">
+                "Strong financial management begins with accurate
+                information, grows through disciplined planning,
+                and supports a sustainable future."
+            </div>
+        </section>
+
+    </div>
+
+    <div class="back-wrapper">
+        <button class="back-button" onclick="history.back()">
+            &#8592; Back to Team
+        </button>
+    </div>
+
+    <footer>
+        PLEXO | LEADERSHIP & MANAGEMENT
+    </footer>
+
+</main>
+
+</body>
+</html>
