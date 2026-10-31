@@ -1,0 +1,633 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Abin | HR Executive - PLEXO</title>
+
+<style>
+:root {
+    --bg: #050b1f;
+    --card: #0b1733;
+    --cyan: #22d3ee;
+    --blue: #3478ff;
+    --white: #f5f8ff;
+    --muted: #a6b7d6;
+    --border: rgba(100, 190, 255, 0.22);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--white);
+    background:
+        radial-gradient(ellipse at top left, #10285a, transparent 45%),
+        radial-gradient(ellipse at bottom right, #06395b, transparent 40%),
+        var(--bg);
+    line-height: 1.8;
+    padding: 35px 18px 60px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 55px 25px;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    background: linear-gradient(
+        145deg,
+        rgba(20, 43, 83, 0.92),
+        rgba(7, 18, 43, 0.96)
+    );
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.company-label {
+    display: inline-block;
+    color: var(--cyan);
+    border: 1px solid var(--border);
+    background: rgba(34, 211, 238, 0.07);
+    border-radius: 30px;
+    padding: 8px 20px;
+    letter-spacing: 3px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.avatar {
+    width: 115px;
+    height: 115px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 25px;
+    border-radius: 30px;
+    color: #041126;
+    background: linear-gradient(135deg, var(--cyan), var(--blue));
+    font-size: 48px;
+    font-weight: 800;
+    box-shadow: 0 10px 35px rgba(34, 211, 238, 0.2);
+}
+
+h1 {
+    font-size: clamp(38px, 7vw, 65px);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+h1 span {
+    color: var(--cyan);
+}
+
+.role {
+    color: #67e8f9;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    max-width: 680px;
+    color: var(--muted);
+    margin: auto;
+    font-size: 16px;
+}
+
+.badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.badge {
+    padding: 8px 14px;
+    border-radius: 25px;
+    color: var(--cyan);
+    border: 1px solid var(--border);
+    background: rgba(34, 211, 238, 0.07);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.content {
+    display: grid;
+    gap: 22px;
+    margin-top: 28px;
+}
+
+.section {
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        rgba(14, 31, 64, 0.94),
+        rgba(7, 18, 43, 0.96)
+    );
+}
+
+.section h2 {
+    color: var(--cyan);
+    font-size: 24px;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.section p {
+    color: var(--muted);
+    margin-bottom: 14px;
+    font-size: 15px;
+}
+
+.section p:last-child {
+    margin-bottom: 0;
+}
+
+.section ul {
+    padding-left: 22px;
+    color: var(--muted);
+}
+
+.section li {
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: var(--white);
+    font-weight: bold;
+}
+
+.quote {
+    border-left: 3px solid var(--cyan);
+    padding: 18px 22px;
+    margin-top: 18px;
+    background: rgba(34, 211, 238, 0.05);
+    color: var(--white);
+    font-size: 17px;
+    font-style: italic;
+}
+
+.back-wrapper {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 13px 30px;
+    border: 1px solid var(--cyan);
+    border-radius: 30px;
+    color: var(--white);
+    background: rgba(34, 211, 238, 0.08);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    color: #041126;
+    background: var(--cyan);
+    transform: translateY(-3px);
+}
+
+footer {
+    text-align: center;
+    margin-top: 35px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 18px 12px 40px;
+    }
+
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .section {
+        padding: 24px 20px;
+    }
+
+    .section h2 {
+        font-size: 21px;
+    }
+
+    .hero-description,
+    .section p {
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+    <!-- PROFILE HEADER -->
+    <header class="hero">
+        <div class="company-label">PLEXO LEADERSHIP</div>
+
+        <div class="avatar">A</div>
+
+        <h1>Abin <span>.</span></h1>
+
+        <div class="role">
+            HR Executive
+        </div>
+
+        <p class="hero-description">
+            A key member of the PLEXO team, focused on human
+            resources, employee coordination, recruitment,
+            staff support, and maintaining a professional
+            working environment.
+        </p>
+
+        <div class="badges">
+            <span class="badge">HUMAN RESOURCES</span>
+            <span class="badge">RECRUITMENT</span>
+            <span class="badge">TEAMWORK</span>
+            <span class="badge">EMPLOYEE SUPPORT</span>
+        </div>
+    </header>
+
+    <div class="content">
+
+        <!-- ABOUT ABIN -->
+        <section class="section">
+            <h2>01. About Abin</h2>
+
+            <p>
+                Abin holds the position of HR Executive at PLEXO.
+                As a member of the company's team, he has an
+                important role in supporting employee management,
+                organizing staff-related activities, and helping
+                maintain a professional working environment.
+            </p>
+
+            <p>
+                A successful company needs more than good products
+                and business plans. It also needs responsible
+                employees, proper communication, teamwork, and
+                a supportive workplace. The HR role helps connect
+                the company's people with its goals.
+            </p>
+
+            <p>
+                Abin's position represents the importance of
+                responsibility, employee support, coordination,
+                and professional relationships. Through effective
+                communication and organized HR activities, he
+                helps create a strong foundation for the future
+                of PLEXO.
+            </p>
+        </section>
+
+        <!-- ROLE -->
+        <section class="section">
+            <h2>02. Role and Responsibilities</h2>
+
+            <p>
+                The HR Executive plays an important role in
+                supporting employee-related activities and
+                maintaining organized human resource processes.
+                At PLEXO, the role focuses on staff coordination,
+                recruitment support, employee records, and
+                workplace communication.
+            </p>
+
+            <ul>
+                <li>
+                    <span class="highlight">Employee Management:</span>
+                    Helping maintain employee information and
+                    supporting staff-related activities.
+                </li>
+
+                <li>
+                    <span class="highlight">Recruitment Support:</span>
+                    Assisting with finding suitable candidates
+                    and organizing the hiring process.
+                </li>
+
+                <li>
+                    <span class="highlight">Attendance and Leave:</span>
+                    Supporting attendance records, leave details,
+                    and staff schedules.
+                </li>
+
+                <li>
+                    <span class="highlight">Staff Coordination:</span>
+                    Supporting communication between employees
+                    and different departments.
+                </li>
+
+                <li>
+                    <span class="highlight">Employee Support:</span>
+                    Listening to employee concerns and helping
+                    address workplace-related matters.
+                </li>
+
+                <li>
+                    <span class="highlight">HR Administration:</span>
+                    Maintaining organized employee documents
+                    and supporting HR procedures.
+                </li>
+            </ul>
+        </section>
+
+        <!-- RECRUITMENT -->
+        <section class="section">
+            <h2>03. Recruitment and Hiring</h2>
+
+            <p>
+                Recruitment is an important part of building a
+                strong company. Selecting suitable people helps
+                create a capable team that can support the
+                company's business activities and future goals.
+            </p>
+
+            <p>
+                As HR Executive, Abin supports the recruitment
+                process by helping identify staffing requirements,
+                communicating with candidates, organizing
+                interviews, and assisting with hiring-related
+                documentation.
+            </p>
+
+            <p>
+                The aim is to help PLEXO bring together responsible
+                and capable employees who understand their duties
+                and are willing to work together for the growth
+                of the company.
+            </p>
+        </section>
+
+        <!-- EMPLOYEE MANAGEMENT -->
+        <section class="section">
+            <h2>04. Employee Management and Administration</h2>
+
+            <p>
+                Proper employee management helps a company
+                maintain organized records and clear working
+                procedures. Employee information, attendance,
+                leave details, and other HR documents need to
+                be maintained carefully.
+            </p>
+
+            <p>
+                The HR function supports these activities by
+                keeping employee records organized, assisting
+                with staff schedules, and helping ensure that
+                important employee-related information is
+                available when required.
+            </p>
+
+            <p>
+                For PLEXO, organized HR administration can
+                support better communication, responsible
+                management, and a more consistent working
+                environment.
+            </p>
+        </section>
+
+        <!-- COMMUNICATION -->
+        <section class="section">
+            <h2>05. Staff Coordination and Communication</h2>
+
+            <p>
+                Clear communication helps employees understand
+                their responsibilities, daily schedules, and
+                workplace expectations. Good coordination also
+                helps different departments work together
+                effectively.
+            </p>
+
+            <p>
+                Abin's HR role supports communication between
+                employees and the company's different departments.
+                This includes helping share important information,
+                coordinating staff-related matters, and supporting
+                teamwork.
+            </p>
+
+            <p>
+                Strong communication depends on listening,
+                mutual respect, and timely information sharing.
+                These principles help create a more organized
+                and cooperative workplace at PLEXO.
+            </p>
+        </section>
+
+        <!-- SALARY -->
+        <section class="section">
+            <h2>06. Salary and Documentation Support</h2>
+
+            <p>
+                Accurate employee documentation is important
+                for organized company administration. Salary
+                details, attendance records, leave information,
+                and employee documents should be maintained
+                properly.
+            </p>
+
+            <p>
+                The HR Executive supports the preparation and
+                organization of employee-related information
+                and coordinates with the Finance Department
+                when salary documentation or payroll details
+                need attention.
+            </p>
+
+            <p>
+                This coordination helps maintain clear records,
+                improve administrative efficiency, and support
+                responsible handling of employee information.
+            </p>
+        </section>
+
+        <!-- TRAINING -->
+        <section class="section">
+            <h2>07. Employee Training and Development</h2>
+
+            <p>
+                Training helps employees understand their duties,
+                improve their skills, and perform their work
+                more effectively. A company that supports
+                employee development can build a stronger
+                and more capable team.
+            </p>
+
+            <p>
+                Abin supports employee training coordination
+                by helping communicate training requirements,
+                organize staff participation, and encourage
+                employees to learn and improve.
+            </p>
+
+            <p>
+                For PLEXO, employee development can support
+                better performance, workplace safety, service
+                quality, and long-term business growth.
+            </p>
+        </section>
+
+        <!-- WORKPLACE -->
+        <section class="section">
+            <h2>08. Workplace Environment and Employee Relations</h2>
+
+            <p>
+                A positive workplace is built on respect,
+                fairness, cooperation, and professional
+                communication. Employees should feel comfortable
+                sharing concerns and discussing workplace
+                matters appropriately.
+            </p>
+
+            <p>
+                The HR function supports a healthy working
+                environment by listening to employee concerns,
+                encouraging respectful communication, and
+                helping address staff-related issues through
+                proper procedures.
+            </p>
+
+            <p>
+                A supportive workplace helps improve employee
+                confidence, teamwork, responsibility, and
+                overall organizational performance.
+            </p>
+        </section>
+
+        <!-- DEPARTMENTS -->
+        <section class="section">
+            <h2>09. Coordination Across PLEXO Departments</h2>
+
+            <p>
+                PLEXO depends on teamwork between different
+                departments. Human resources plays an important
+                role in supporting communication and employee
+                coordination across the organization.
+            </p>
+
+            <p>
+                This includes coordinating staff-related
+                requirements with water production, quality
+                control, packaging, sales and marketing,
+                transport and distribution, finance, and
+                administration.
+            </p>
+
+            <p>
+                Effective coordination helps ensure that
+                employees understand their responsibilities
+                and that departments can work together toward
+                the company's common objectives.
+            </p>
+        </section>
+
+        <!-- VALUES -->
+        <section class="section">
+            <h2>10. Professional Values and Work Principles</h2>
+
+            <p>
+                A company's working culture is shaped by the
+                way its people communicate, cooperate, and
+                perform their responsibilities. Professional
+                values are important for maintaining trust
+                and a positive workplace.
+            </p>
+
+            <ul>
+                <li><span class="highlight">Confidentiality:</span>
+                    Handling employee information carefully
+                    and responsibly.</li>
+
+                <li><span class="highlight">Fairness:</span>
+                    Treating employees with respect and
+                    professional consideration.</li>
+
+                <li><span class="highlight">Communication:</span>
+                    Sharing clear and accurate information
+                    with the team.</li>
+
+                <li><span class="highlight">Responsibility:</span>
+                    Completing assigned HR duties carefully
+                    and consistently.</li>
+
+                <li><span class="highlight">Cooperation:</span>
+                    Working with different departments
+                    toward common goals.</li>
+            </ul>
+        </section>
+
+        <!-- FUTURE -->
+        <section class="section">
+            <h2>11. Supporting the Future of PLEXO</h2>
+
+            <p>
+                As PLEXO grows, building a strong and reliable
+                workforce will remain important. New business
+                activities may require additional employees,
+                better HR procedures, organized records, and
+                improved staff coordination.
+            </p>
+
+            <p>
+                The HR Executive role supports the company's
+                preparation for these changes by assisting
+                with recruitment, employee administration,
+                staff communication, and workplace development.
+            </p>
+
+            <p>
+                The goal is to help build an organization
+                where employees understand their responsibilities,
+                receive proper support, and contribute to the
+                company's quality, service, and sustainable growth.
+            </p>
+
+            <div class="quote">
+                "A strong company is built by strong people,
+                clear communication, mutual respect, and
+                teamwork."
+            </div>
+        </section>
+
+    </div>
+
+    <div class="back-wrapper">
+        <button class="back-button" onclick="history.back()">
+            &#8592; Back to Team
+        </button>
+    </div>
+
+    <footer>
+        PLEXO | LEADERSHIP & MANAGEMENT
+    </footer>
+
+</main>
+
+</body>
+</html>
