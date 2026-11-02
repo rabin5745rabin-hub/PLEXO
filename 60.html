@@ -1,0 +1,1492 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLEXO WATER - 60 Days Business Preparation Plan</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        plexo: {
+                            navy: '#0B132B',
+                            deep: '#1C2541',
+                            blue: '#00B4D8',
+                            cyan: '#90E0EF',
+                            gold: '#D4AF37',
+                            goldlight: '#F3E5AB',
+                            card: 'rgba(28, 37, 65, 0.65)'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: radial-gradient(circle at top right, #1C2541 0%, #0B132B 60%, #050914 100%);
+            background-attachment: fixed;
+            color: #E2E8F0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(28, 37, 65, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-card-interactive {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card-interactive:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 12px 40px 0 rgba(0, 180, 216, 0.2);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF 0%, #F3E5AB 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blue-gradient-text {
+            background: linear-gradient(135deg, #FFFFFF 0%, #90E0EF 50%, #00B4D8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B132B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1C2541;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00B4D8;
+        }
+
+        .checkbox-custom:checked {
+            background-color: #D4AF37;
+            border-color: #D4AF37;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-20">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 glass-card border-b border-gold/20 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-plexo-navy via-plexo-blue to-plexo-gold p-0.5 shadow-lg flex items-center justify-center">
+                    <div class="w-full h-full bg-plexo-navy rounded-full flex items-center justify-center">
+                        <i class="fa-solid font-bold fa-droplet text-plexo-cyan text-xl"></i>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="font-serif text-2xl font-bold tracking-wider gold-gradient-text">PLEXO WATER</h1>
+                    <p class="text-xs text-plexo-cyan/80 tracking-widest uppercase">Karimba, Palakkad • 60-Day Business Plan</p>
+                </div>
+            </div>
+
+            <!-- Overall Progress Bar -->
+            <div class="w-full sm:w-72 glass-card p-3 rounded-xl border border-white/10">
+                <div class="flex justify-between items-center text-xs mb-1">
+                    <span class="text-gray-300 font-medium">Project Completion</span>
+                    <span id="overallProgressText" class="text-plexo-gold font-bold">0% (0/60 Days)</span>
+                </div>
+                <div class="w-full bg-plexo-navy/80 h-2.5 rounded-full overflow-hidden p-0.5 border border-gold/20">
+                    <div id="overallProgressBar" class="bg-gradient-to-r from-plexo-blue via-plexo-cyan to-plexo-gold h-full rounded-full transition-all duration-500 w-0"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 space-y-10">
+
+        <!-- Hero & Overview Card -->
+        <section class="glass-card rounded-2xl p-6 sm:p-8 relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-80 h-80 bg-plexo-blue/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-plexo-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="relative z-10 max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-plexo-gold/10 border border-plexo-gold/30 text-plexo-goldlight text-xs font-semibold mb-4">
+                    <i class="fa-solid fa-compass"></i> Master Operational Roadmap
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold blue-gradient-text mb-4">Packaged Drinking Water Plant Setup</h2>
+                <p class="text-gray-300 leading-relaxed text-sm sm:text-base mb-6">
+                    A comprehensive, 60-day step-by-step business execution strategy for <strong class="text-plexo-gold">PLEXO WATER</strong> in Karimba Grama Panchayat, Palakkad. Built for strict regulatory compliance, quality control, and zero-risk land & machinery deployment.
+                </p>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+                    <div class="bg-plexo-navy/60 p-3 rounded-lg border border-white/5">
+                        <span class="block text-xs text-gray-400">Target Region</span>
+                        <span class="text-sm font-semibold text-white">Karimba & Mannarkkad</span>
+                    </div>
+                    <div class="bg-plexo-navy/60 p-3 rounded-lg border border-white/5">
+                        <span class="block text-xs text-gray-400">Target Shops</span>
+                        <span class="text-sm font-semibold text-plexo-gold">100+ Outlets</span>
+                    </div>
+                    <div class="bg-plexo-navy/60 p-3 rounded-lg border border-white/5">
+                        <span class="block text-xs text-gray-400">Packaging Cap</span>
+                        <span class="text-sm font-semibold text-plexo-cyan">Max ₹8 / Bottle</span>
+                    </div>
+                    <div class="bg-plexo-navy/60 p-3 rounded-lg border border-white/5">
+                        <span class="block text-xs text-gray-400">Standard</span>
+                        <span class="text-sm font-semibold text-white">IS 14543 / FSSAI</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DYNAMIC CALCULATOR WIDGET -->
+        <section class="glass-card rounded-2xl p-6 sm:p-8 border border-plexo-gold/30 relative">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-3 bg-plexo-gold/10 rounded-xl border border-plexo-gold/30 text-plexo-gold">
+                    <i class="fa-solid fa-calculator text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-serif text-xl sm:text-2xl font-bold text-white">Dynamic Production & Cost Calculator</h3>
+                    <p class="text-xs text-gray-400">Simulate daily shop target scale, bottle volume, packaging costs, and crate logistics.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Calculator Inputs -->
+                <div class="lg:col-span-5 space-y-6 bg-plexo-navy/60 p-5 rounded-xl border border-white/5">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label for="inputShops" class="text-sm font-medium text-gray-200">Target Retail Network (Shops)</label>
+                            <span id="valShops" class="text-sm font-bold text-plexo-gold bg-plexo-gold/10 px-2 py-0.5 rounded border border-plexo-gold/30">100 Shops</span>
+                        </div>
+                        <input type="range" id="inputShops" min="10" max="300" step="5" value="100" class="w-full accent-plexo-gold cursor-pointer">
+                        <div class="flex justify-between text-[10px] text-gray-500 mt-1">
+                            <span>10 Shops</span>
+                            <span>100 (Target)</span>
+                            <span>300 Shops</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label for="inputBottlesPerShop" class="text-sm font-medium text-gray-200">Daily Demand / Shop (Bottles)</label>
+                            <span id="valBottles" class="text-sm font-bold text-plexo-cyan bg-plexo-cyan/10 px-2 py-0.5 rounded border border-plexo-cyan/30">20 Bottles/Day</span>
+                        </div>
+                        <input type="range" id="inputBottlesPerShop" min="5" max="100" step="5" value="20" class="w-full accent-plexo-cyan cursor-pointer">
+                        <div class="flex justify-between text-[10px] text-gray-500 mt-1">
+                            <span>5 Bottles</span>
+                            <span>20 Bottles</span>
+                            <span>100 Bottles</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label for="inputPackagingCost" class="text-sm font-medium text-gray-200">Max Packaging Cost / Bottle (₹)</label>
+                            <span id="valCost" class="text-sm font-bold text-white bg-white/10 px-2 py-0.5 rounded">₹8.00</span>
+                        </div>
+                        <input type="range" id="inputPackagingCost" min="4" max="12" step="0.5" value="8" class="w-full accent-white cursor-pointer">
+                        <div class="flex justify-between text-[10px] text-gray-500 mt-1">
+                            <span>₹4</span>
+                            <span>₹8 (Target Max)</span>
+                            <span>₹12</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculator Outputs & Visual Effects -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="glass-card p-5 rounded-xl flex flex-col justify-between border-l-4 border-l-plexo-blue">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Monthly Bottle Volume</span>
+                            <i class="fa-solid fa-bottle-water text-plexo-blue"></i>
+                        </div>
+                        <div class="mt-4">
+                            <span id="outMonthlyBottles" class="text-2xl sm:text-3xl font-extrabold text-white">60,000</span>
+                            <span class="text-xs text-gray-400 block mt-1">Bottles / month (30 days)</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-xl flex flex-col justify-between border-l-4 border-l-plexo-gold">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Est. Monthly Packaging Cost</span>
+                            <i class="fa-solid fa-indian-rupee-sign text-plexo-gold"></i>
+                        </div>
+                        <div class="mt-4">
+                            <span id="outMonthlyCost" class="text-2xl sm:text-3xl font-extrabold text-plexo-gold">₹4,80,000</span>
+                            <span class="text-xs text-gray-400 block mt-1">At ₹8.00 max cost cap</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-xl flex flex-col justify-between border-l-4 border-l-plexo-cyan">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Daily Crates Needed</span>
+                            <i class="fa-solid fa-truck-ramp-box text-plexo-cyan"></i>
+                        </div>
+                        <div class="mt-4">
+                            <span id="outDailyCrates" class="text-2xl sm:text-3xl font-extrabold text-white">167</span>
+                            <span class="text-xs text-gray-400 block mt-1">Crates / day (12 bottles/crate)</span>
+                        </div>
+                    </div>
+
+                    <!-- Network Target Progress Gauge -->
+                    <div class="glass-card p-5 rounded-xl flex flex-col justify-between border-l-4 border-l-purple-500">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Shop Target Progress</span>
+                            <i class="fa-solid fa-store text-purple-400"></i>
+                        </div>
+                        <div class="mt-2">
+                            <div class="flex justify-between items-center mb-1">
+                                <span id="outTargetPercent" class="text-xl font-bold text-purple-300">100%</span>
+                                <span class="text-xs text-gray-400">Target: 100 Shops</span>
+                            </div>
+                            <div class="w-full bg-plexo-navy h-2 rounded-full overflow-hidden border border-white/10">
+                                <div id="barTargetPercent" class="bg-gradient-to-r from-purple-500 to-plexo-cyan h-full transition-all duration-300 w-full"></div>
+                            </div>
+                            <span class="text-[11px] text-gray-400 mt-2 block" id="targetStatusText">Target network goal achieved!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEARCH AND FILTER TOOLBAR -->
+        <section class="flex flex-col md:flex-row items-center justify-between gap-4 glass-card p-4 rounded-xl">
+            <div class="relative w-full md:w-80">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                <input type="text" id="searchInput" placeholder="Search tasks, days, departments..." class="w-full bg-plexo-navy/80 border border-white/10 rounded-lg pl-9 pr-4 py-2 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-plexo-gold transition">
+            </div>
+
+            <!-- Phase Filter Tabs -->
+            <div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none text-xs">
+                <button class="phase-filter-btn px-3 py-1.5 rounded-lg bg-plexo-gold text-plexo-navy font-bold transition whitespace-nowrap" data-phase="all">All Phases (1-12)</button>
+                <button class="phase-filter-btn px-3 py-1.5 rounded-lg bg-plexo-navy/80 border border-white/10 text-gray-300 hover:border-plexo-gold transition whitespace-nowrap" data-phase="1">Phase 1-3 (Setup & Legal)</button>
+                <button class="phase-filter-btn px-3 py-1.5 rounded-lg bg-plexo-navy/80 border border-white/10 text-gray-300 hover:border-plexo-gold transition whitespace-nowrap" data-phase="2">Phase 4-6 (Plant & Brand)</button>
+                <button class="phase-filter-btn px-3 py-1.5 rounded-lg bg-plexo-navy/80 border border-white/10 text-gray-300 hover:border-plexo-gold transition whitespace-nowrap" data-phase="3">Phase 7-9 (Sales & Team)</button>
+                <button class="phase-filter-btn px-3 py-1.5 rounded-lg bg-plexo-navy/80 border border-white/10 text-gray-300 hover:border-plexo-gold transition whitespace-nowrap" data-phase="4">Phase 10-12 (Testing & Launch)</button>
+            </div>
+        </section>
+
+        <!-- 60 DAYS ACCORDION & ROADMAP CONTAINER -->
+        <section id="roadmapContainer" class="space-y-6">
+            <!-- Dynamic Injection of 12 Phases & 60 Days -->
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 text-center text-xs text-gray-500 border-t border-white/10 pt-6">
+        <p>© PLEXO WATER • Karimba Grama Panchayat, Palakkad, Kerala. All rights reserved.</p>
+        <p class="mt-1 text-gray-600">Strict adherence to IS 14543, FSSAI, CGWA & KSPCB regulations required before commercial launch.</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // -------------------------------------------------------------
+        // 1. DATA STRUCTURE: 12 PHASES / 60 DAYS
+        // -------------------------------------------------------------
+        const phasesData = [
+            {
+                phase: 1,
+                title: "PHASE 1: INITIAL RESEARCH",
+                daysRange: "DAY 1 – DAY 5",
+                group: 1,
+                days: [
+                    {
+                        day: 1,
+                        title: "Location & Competitor Survey",
+                        responsible: "Founder / Business Planner",
+                        importance: "Ensures site selection in Karimba without zoning conflicts or high logistical costs.",
+                        documents: "Local Karimba map, competitor matrix sheet",
+                        risks: "Avoid low-lying flood-prone areas or proximity to industrial waste drains.",
+                        points: [
+                            "Research suitable locations in Karimba Grama Panchayat.",
+                            "Identify potential land locations with road access.",
+                            "Find available water sources (Borewell / Open well points).",
+                            "Identify nearby local packaged water competitors."
+                        ]
+                    },
+                    {
+                        day: 2,
+                        title: "Accessibility & Utility Audit",
+                        responsible: "Operations Manager",
+                        importance: "Prevents infrastructure failures for heavy supply trucks and high-power filtration machinery.",
+                        documents: "Site inspection checklist, KSEB power grid map",
+                        risks: "Narrow roads (< 15 ft width) will block 10-ton supply trucks.",
+                        points: [
+                            "Visit shortlisted potential locations physically.",
+                            "Check heavy transport road access width & turns.",
+                            "Check 3-phase electricity line proximity.",
+                            "Evaluate local logistics & vehicle movement facilities."
+                        ]
+                    },
+                    {
+                        day: 3,
+                        title: "Groundwater & Yield Investigation",
+                        responsible: "Technical Lead / Hydrologist Consultant",
+                        importance: "Guarantees 365-day raw water yield during peak summer months.",
+                        documents: "Groundwater historical data, geological maps",
+                        risks: "Relying on seasonal rain-fed shallow wells that dry in April-May.",
+                        points: [
+                            "Investigate groundwater availability in depth.",
+                            "Identify existing borewells and open wells in the area.",
+                            "Check seasonal water table fluctuations.",
+                            "Identify potential deep groundwater extraction points."
+                        ]
+                    },
+                    {
+                        day: 4,
+                        title: "Land Owner Contact & Document Check",
+                        responsible: "Legal Advisor / Founder",
+                        importance: "Eliminates legal ownership disputes before signing advance leases or purchases.",
+                        documents: "Title Deed, Encumbrance Certificate (EC), Possession Certificate",
+                        risks: "Disputed boundary lines or un-partitioned family land.",
+                        points: [
+                            "Contact property owners directly.",
+                            "Collect survey numbers and land details.",
+                            "Verify title deeds and legal land documents.",
+                            "Identify top 2 candidate properties."
+                        ]
+                    },
+                    {
+                        day: 5,
+                        title: "Site Comparison & Feasibility Report",
+                        responsible: "Project Manager",
+                        importance: "Establishes a clear, data-backed foundation before investing initial capital.",
+                        documents: "Initial Feasibility Matrix & Location Comparison Report",
+                        risks: "Selecting land based on low cost rather than water yield and road connectivity.",
+                        points: [
+                            "Compare shortlisted locations on cost, water, and access.",
+                            "Prepare a consolidated location feasibility report.",
+                            "Identify the single best potential location."
+                        ]
+                    }
+                ]
+            },
+            {
+                phase: 2,
+                title: "PHASE 2: WATER QUALITY INVESTIGATION",
+                daysRange: "DAY 6 – DAY 10",
+                group: 1,
+                days: [
+                    {
+                        day: 6,
+                        title: "Water Sampling & Laboratory Submission",
+                        responsible: "Quality Control Lead",
+                        importance: "Critical first step for mandatory FSSAI & BIS (IS 14543) compliance.",
+                        documents: "Sterile container logs, NABL Lab Chain-of-Custody Form",
+                        risks: "Unsterile sampling bottles leading to false bacterial contamination reports.",
+                        points: [
+                            "Identify candidate water sources for sampling.",
+                            "Collect raw water samples using sterile containers.",
+                            "Dispatch samples immediately to NABL-accredited testing lab."
+                        ]
+                    },
+                    {
+                        day: 7,
+                        title: "Physical & Chemical Parameter Testing",
+                        responsible: "NABL Laboratory / QC Chemist",
+                        importance: "Determines exact Membrane & RO filtration stages required.",
+                        documents: "NABL Chemical Test Report Draft",
+                        risks: "High TDS (> 1000 ppm) or extreme total hardness requiring oversized RO units.",
+                        points: [
+                            "Test Total Dissolved Solids (TDS) levels.",
+                            "Test pH level balance.",
+                            "Test hardness (Calcium & Magnesium).",
+                            "Check chloride, sulfate, and fluoride mineral counts."
+                        ]
+                    },
+                    {
+                        day: 8,
+                        title: "Microbiological & Toxic Contaminant Testing",
+                        responsible: "NABL Laboratory / QC Chemist",
+                        importance: "Ensures raw water is free from dangerous pathogens and carcinogenic chemicals.",
+                        documents: "NABL Microbiological & Heavy Metals Report",
+                        risks: "Presence of pesticides or heavy metals (lead, arsenic, nitrate contamination).",
+                        points: [
+                            "Check for E. coli, Coliforms, and bacterial pathogens.",
+                            "Check chemical pesticide residue.",
+                            "Identify toxic heavy metal trace elements."
+                        ]
+                    },
+                    {
+                        day: 9,
+                        title: "Lab Report Analysis & Treatment Design",
+                        responsible: "Water Treatment Expert / Consultant",
+                        importance: "Prevents over-spending or under-specifying expensive treatment equipment.",
+                        documents: "Water Treatment Plant (WTP) Specification Blueprint",
+                        risks: "Buying off-the-shelf RO without custom pre-treatment sand/carbon media.",
+                        points: [
+                            "Analyze complete NABL laboratory test results.",
+                            "Determine exact required purification stages (RO, UV, Ozone).",
+                            "Consult water treatment plant engineers."
+                        ]
+                    },
+                    {
+                        day: 10,
+                        title: "Master Water Quality Report",
+                        responsible: "Quality Control Lead",
+                        importance: "Final technical clearance checkpoint before signing land agreements.",
+                        documents: "Master Water Quality Clearance Certificate",
+                        risks: "Proceeding with water source requiring prohibitive processing costs.",
+                        points: [
+                            "Prepare consolidated water quality evaluation report.",
+                            "Formally certify whether the raw water source is suitable.",
+                            "Determine if seasonal re-testing is needed."
+                        ]
+                    }
+                ]
+            },
+            {
+                phase: 3,
+                title: "PHASE 3: LEGAL AND LOCATION APPROVAL",
+                daysRange: "DAY 11 – DAY 15",
+                group: 1,
+                days: [
+                    {
+                        day: 11,
+                        title: "Groundwater Regulations & Permits Audit",
+                        responsible: "Legal Advisor",
+                        importance: "Commercial extraction without Groundwater Authority NOC will lead to instant shutdown.",
+                        documents: "Kerala State Groundwater Department Guidelines, CGWA Portal Application",
+                        risks: "Operating in critical 'Over-Exploited' groundwater blocks.",
+                        points: [
+                            "Investigate State Groundwater Authority extraction rules.",
+                            "Verify if commercial extraction is permitted in Karimba zone.",
+                            "Identify mandatory groundwater NOC prerequisites."
+                        ]
+                    },
+                    {
+                        day: 12,
+                        title: "FSSAI & BIS Standards Regulatory Audit",
+                        responsible: "Compliance Officer",
+                        importance: "Packaged drinking water cannot be legally sold in India without BIS ISI mark.",
+                        documents: "IS 14543 Specification manual, FSSAI Licensing Guidelines",
+                        risks: "Failing to budget for mandatory in-house laboratory equipment.",
+                        points: [
+                            "Study FSSAI packaged water license rules.",
+                            "Check mandatory IS 14543 BIS specifications.",
+                            "Identify mandatory testing lab instruments needed."
+                        ]
+                    },
+                    {
+                        day: 13,
+                        title: "Pollution Control Board & Panchayat Audit",
+                        responsible: "Project Manager",
+                        importance: "Ensures zero opposition from Karimba Grama Panchayat or environmental officers.",
+                        documents: "KSPCB Consent-to-Establish Checklist, Panchayat D&O License rules",
+                        risks: "RO reject water discharge violating KSPCB effluent standards.",
+                        points: [
+                            "Check Kerala State Pollution Control Board (KSPCB) rules.",
+                            "Check Karimba Grama Panchayat business trade license rules.",
+                            "Verify land zoning (Industrial/Commercial conversion)."
+                        ]
+                    },
+                    {
+                        day: 14,
+                        title: "Government Department Consultation",
+                        responsible: "Founder / Liaison Officer",
+                        importance: "Clarifies application filing procedures and cuts approval delays.",
+                        documents: "DIC Registration form, Single Window Clearance (KSIFT) portal log",
+                        risks: "Incomplete documentation delaying processing by months.",
+                        points: [
+                            "Meet Karimba Panchayat Secretary and KSEB officers.",
+                            "Verify list of required application documents.",
+                            "Establish application submission workflow."
+                        ]
+                    },
+                    {
+                        day: 15,
+                        title: "Final Land Decision (Lease / Purchase)",
+                        responsible: "Founder / Board Partners",
+                        importance: "RULE: Never buy/lease land until water quality and legal clearance are verified.",
+                        documents: "Final Lease / Purchase Agreement Agreement Draft",
+                        risks: "Executing land contract before confirming legal NOC eligibility.",
+                        points: [
+                            "Review all findings (Water + Legal + Land).",
+                            "Finalize the selected factory site in Karimba.",
+                            "Sign land agreement (Lease or Purchase)."
+                        ]
+                    }
+                ]
+            },
+            {
+                phase: 4,
+                title: "PHASE 4: FACTORY PLANNING",
+                daysRange: "DAY 16 – DAY 20",
+                group: 2,
+                days: [
+                    {
+                        day: 16,
+                        title: "Factory Layout & Zoning Design",
+                        responsible: "Plant Architect / Industrial Engineer",
+                        importance: "BIS (IS 14543) mandates strict physical separation of raw, processing, and filling zones.",
+                        documents: "Factory Architectural CAD Layout",
+                        risks: "Cross-contamination if raw bottle storage connects directly with filling cleanroom.",
+                        points: [
+                            "Draft 2D/3D factory building layout.",
+                            "Allocate raw water storage, processing, and bottle filling zones.",
+                            "Design finished goods warehouse and loading bay."
+                        ]
+                    },
+                    {
+                        day: 17,
+                        title: "Process Flow & Hygienic Cleanroom Planning",
+                        responsible: "Operations Head",
+                        importance: "Guarantees smooth linear production flow from raw water to shrink-wrapped pallet.",
+                        documents: "Hygienic Cleanroom HVAC & Air Lock Plan",
+                        risks: "Unfiltered air entering bottling section leading to mold contamination.",
+                        points: [
+                            "Design raw water tank foundation.",
+                            "Plan WTP (Water Treatment Plant) floor area.",
+                            "Design positive-pressure cleanroom for bottle filling."
+                        ]
+                    },
+                    {
+                        day: 18,
+                        title: "In-House QC Lab & Waste Management",
+                        responsible: "QC Manager / Civil Contractor",
+                        importance: "BIS rules mandate functional Micro and Chemical labs inside plant premises.",
+                        documents: "Laboratory Layout & Waste Drain Diagram",
+                        risks: "RO reject water flooding adjacent agricultural land.",
+                        points: [
+                            "Allocate space for Microbiological and Chemical testing lab.",
+                            "Design hygienic drainage for bottle washing.",
+                            "Plan eco-friendly RO reject water handling system."
+                        ]
+                    },
+                    {
+                        day: 19,
+                        title: "Electrical Utility & Power Piping Plan",
+                        responsible: "Electrical Engineer",
+                        importance: "Prevents voltage drops during continuous motor and ozone generator operation.",
+                        documents: "Electrical Load Calculation Sheet, Piping Schematic",
+                        risks: "Underestimating kW load causing frequent power tripping.",
+                        points: [
+                            "Calculate total electrical power load (HP/kW).",
+                            "Design 3-phase connection lines & DG backup space.",
+                            "Plan SS316 food-grade water pipe lines."
+                        ]
+                    },
+                    {
+                        day: 20,
+                        title: "Master Factory Infrastructure Authorization",
+                        responsible: "Project Manager / Technical Lead",
+                        importance: "Prevents costly civil reconstruction during machine installation.",
+                        documents: "Approved Factory Construction Blueprint",
+                        risks: "Proceeding to build without expert sign-off.",
+                        points: [
+                            "Conduct master review of layout blueprints.",
+                            "Consult technical food safety experts.",
+                            "Finalize factory construction plan."
+                        ]
+                    }
+                ]
+            },
+            {
+                phase: 5,
+                title: "PHASE 5: MACHINERY RESEARCH",
+                daysRange: "DAY 21 – DAY 25",
+                group: 2,
+                days: [
+                    {
+                        day: 21,
+                        title: "Purification Machinery Supplier Research",
+                        responsible: "Procurement Lead",
+                        importance: "Selecting high-efficiency pre-filtration protects expensive RO membranes.",
+                        documents: "Machinery Vendor Catalog Matrix",
+                        risks: "Buying un-certified mild steel filters instead of food-grade SS304/SS316.",
+                        points: [
+                            "Research industrial water purification machinery.",
+                            "Identify reputable ISO/BIS certified machinery vendors.",
+                            "Compare Sand, Carbon, and Micron filter media specs."
+                        ]
+                    },
+                    {
+                        day: 22,
+                        title: "RO, UV & Ozonation System Selection",
+                        responsible: "Water Treatment Specialist",
+                        importance: "Ensures 100% destruction of bacteria, viruses, and microbial spores.",
+                        documents: "RO/UV/Ozone Equipment Quotation Comparison",
+                        risks: "Inadequate ozone contact time causing post-packaging bacterial regrowth.",
+                        points: [
+                            "Select high-rejection RO membrane systems.",
+                            "Select stainless steel UV disinfection units.",
+                            "Select industrial Ozone Generators & recirculating tanks."
+                        ]
+                    },
+                    {
+                        day: 23,
+                        title: "Bottling, Rinsing & Capping Line Research",
+                        responsible: "Machinery Lead",
+                        importance: "Automatic RFC (Rinsing, Filling, Capping) ensures hands-free hygienic packaging.",
+                        documents: "RFC Automations Specification sheet",
+                        risks: "Manual bottle filling leads to immediate BIS license rejection.",
+                        points: [
+                            "Research automatic bottle rinsing machines.",
+                            "Research rotary bottle filling lines.",
+                            "Research automatic cap sealing and shrink wrapping systems."
+                        ]
+                    },
+                    {
+                        day: 24,
+                        title: "Vendor Negotiation & Warranty Terms",
+                        responsible: "Procurement Lead / Founder",
+                        importance: "Secures lowest capital cost, free spare parts, and prompt AMC support.",
+                        documents: "Purchase Order (PO) Draft, AMC Contract terms",
+                        risks: "No local technician support causing 2-week factory downtime during breakdowns.",
+                        points: [
+                            "Contact top 3 machinery manufacturers.",
+                            "Collect itemized technical quotations.",
+                            "Negotiate machine speed (BPM), warranties, and installation terms."
+                        ]
+                    },
+                    {
+                        day: 25,
+                        title: "Machinery Order & Installation Schedule",
+                        responsible: "Project Manager",
+                        importance: "Synchronizes machinery arrival with civil building completion.",
+                        documents: "Final Machinery Supply Agreement & Timeline",
+                        risks: "Ordering machines before floor curing is finished.",
+                        points: [
+                            "Finalize technical machinery specifications.",
+                            "Place advance machinery orders.",
+                            "Prepare machinery delivery and installation schedule."
+                        ]
+                    }
+                ]
+            },
+            {
+                phase: 6,
+                title: "PHASE 6: BRANDING AND PACKAGING",
+                daysRange: "DAY 26 – DAY 30",
+                group: 2,
+                days: [
+                    {
+                        day: 26,
+                        title: "Brand Strategy & Logo Finalization",
+                        responsible: "Brand Manager / Graphic Designer",
+                        importance: "Establishes PLEXO WATER as a premium, modern, pure, and trusted brand.",
+                        documents: "PLEXO Brand Identity Vector Guide & Color Palette",
+                        risks: "Generic logo designs that look like cheap local brands.",
+                        points: [
+                            "Finalize PLEXO WATER brand trademark strategy.",
+                            "Develop iconic, classic logo design.",
+                            "Finalize primary colors (Cyan, Navy, Gold accents)."
+                        ]
+                    },
+                    {
+                        day: 27,
+                        title: "1-Litre PET Bottle Shape & Mold Selection",
+                        responsible: "Packaging Lead",
+                        importance: "Sturdy bottle design prevents crushing during transit across Palakkad routes.",
+                        documents: "PET Bottle Technical Drawing (Grammage: 13g-15g)",
+                        risks: "Extremely thin plastic bottles that leak or collapse when stacked.",
+                        points: [
+                            "Research ergonomic 1-Litre bottle designs.",
+                            "Contact local PET blow molding suppliers.",
+                            "Compare PET resin quality and bottle rigidity."
+                        ]
+                    },
+                    {
+                        day: 28,
+                        title: "Cap & Tamper-Evident Seal Selection",
+                        responsible: "Packaging Lead",
+                        importance: "Guarantees leak-proof seal and customer confidence in tamper safety.",
+                        documents: "28mm Neck Cap Spec Sheet & Color Samples",
+                        risks: "Defective cap threads leading to water leakage during delivery truck vibration.",
+                        points: [
+                            "Research 28mm plastic neck cap suppliers.",
+                            "Test tamper-evident break-ring safety mechanisms.",
+                            "Select cap color matching PLEXO branding."
+                        ]
+                    },
+                    {
+                        day: 29,
+                        title: "Label Design & Regulatory Compliance",
+                        responsible: "Compliance Officer / Designer",
+                        importance: "Non-compliant labels violate FSSAI & Legal Metrology packaging rules.",
+                        documents: "BOPP Label Artwork (Includes FSSAI #, ISI Mark space, Batch Code)",
+                        risks: "Missing mandatory statutory warnings or incorrect font sizes.",
+                        points: [
+                            "Design BOPP wrap-around bottle labels.",
+                            "Incorporate FSSAI license, BIS ISI mark box, batch details.",
+                            "Finalize barcode and nutritional declaration."
+                        ]
+                    },
+                    {
+                        day: 30,
+                        title: "Packaging Vendor Finalization (Max ₹8 Target)",
+                        responsible: "Procurement Lead",
+                        importance: "TARGET: ≤ ₹8 per 1L bottle total cost (Bottle + Cap + Label + Shrink).",
+                        documents: "Packaging Supply Rate Contract",
+                        risks: "Cost overrun above ₹8 eating into distributor margins.",
+                        points: [
+                            "Shortlist bottle, cap, and label vendors.",
+                            "Negotiate bulk rates for 20,000 unit initial batch.",
+                            "Lock packaging cost at or below ₹8 per complete unit."
+                        ]
+                    }
+                ]
+            },
+            {
+                phase: 7,
+                title: "PHASE 7: SHOP NETWORK DEVELOPMENT",
+                daysRange: "DAY 31 – DAY 35",
+                group: 3,
+                days: [
+                    {
+                        day: 31,
+                        title: "Retail Shop Database Building",
+                        responsible: "Sales Lead / Field Officers",
+                        importance: "Builds localized lead pipeline before production begins.",
+                        documents: "Master Retail Database Sheet (Karimba & Mannarkkad)",
+                        risks: "Ignoring high-volume outlets like bus stand bakeries and highway eateries.",
+                        points: [
+                            "Map all retail shops, bakeries, and restaurants in Karimba.",
+                            "Map major outlets in neighboring Mannarkkad town.",
+                            "Create database targeting 150+ retail points."
+                        ]
+                    },
+                    {
+                        day: 32,
+                        title: "Field Sales Visits & Product Pitch",
+                        responsible: "Sales Team",
+                        importance: "Creates personal rapport with key shopkeepers.",
+                        documents: "PLEXO Product Brochure & Retail Margin Card",
+                        risks: "Failing to explain PLEXO water purity and margin superiority.",
+                        points: [
+                            "Conduct direct shopkeeper visits.",
+                            "Introduce PLEXO WATER brand and quality standards.",
+                            "Explain trade margin benefits and delivery reliability."
+                        ]
+                    },
+                    {
+                        day: 33,
+                        title: "Shopkeeper Requirement Gathering",
+                        responsible: "Sales Representative",
+                        importance: "Adapts supply schedule to shopkeeper credit terms and storage space.",
+                        documents: "Shop Feedback & Demand Survey Log",
+                        risks: "Offering excessive credit causing cash flow blockages.",
+                        points: [
+                            "Discuss daily bottle stocking capacity with shops.",
+                            "Collect feedback on preferred crate sizes.",
+                            "Record initial retail interest and pre-order estimates."
+                        ]
+                    },
+                    {
+                        day: 34,
+                        title: "Distribution Route Clustering",
+                        responsible: "Logistics Manager",
+                        importance: "Minimizes vehicle fuel expenditure and transit time.",
+                        documents: "Route Map & Delivery Cluster Chart (Route A, B, C)",
+                        risks: "Zig-zag delivery paths causing high diesel expenditure.",
+                        points: [
+                            "Group interested shops into geographic clusters.",
+                            "Design optimized daily delivery routes.",
+                            "Assign route frequencies (Daily / Alternate days)."
+                        ]
+                    },
+                    {
+                        day: 35,
+                        title: "100-Shop Network Lock-In Target",
+                        responsible: "Sales Lead / Founder",
+                        importance: "Guarantees immediate sales volume on Day 1 of factory launch.",
+                        documents: "Signed / Confirmed Retail Pre-Order Register",
+                        risks: "Launching plant with less than 50 committed retail points.",
+                        points: [
+                            "Review shopkeeper responses.",
+                            "Confirm initial pre-orders from minimum 100 retail shops.",
+                            "Finalize phase-1 retail network agreement."
+                        ]
+                    }
+                ]
+            },
+            {
+                phase: 8,
+                title: "PHASE 8: EMPLOYEES AND INCENTIVES",
+                daysRange: "DAY 36 – DAY 40",
+                group: 3,
+                days: [
+                    {
+                        day: 36,
+                        title: "Staffing Hierarchy & Role Allocation",
+                        responsible: "HR Manager / Founder",
+                        importance: "Eliminates operational confusion between plant operators, chemists, and sales staff.",
+                        documents: "Organogram Chart & Job Description Docs",
+                        risks: "Hiring un-certified lab chemists who fail BIS competence interviews.",
+                        points: [
+                            "Identify total workforce requirements (Plant, QC, Sales, Logistics).",
+                            "Define clear job descriptions for each role.",
+                            "Assign specific partner operational duties."
+                        ]
+                    },
+                    {
+                        day: 37,
+                        title: "Delivery Driver & Helper Duties",
+                        responsible: "Operations Manager",
+                        importance: "Ensures punctual morning deliveries and proper empty crate tracking.",
+                        documents: "Driver Route Operating Manual & Logbook",
+                        risks: "Un-tracked bottle breakages or unaccounted cash collection.",
+                        points: [
+                            "Define daily loading and delivery schedules.",
+                            "Establish shop visit accountability logs.",
+                            "Set end-of-day cash reconciliation procedures."
+                        ]
+                    },
+                    {
+                        day: 38,
+                        title: "Shopkeeper Incentive Scheme Design",
+                        responsible: "Marketing Manager",
+                        importance: "Encourages shopkeepers to actively recommend PLEXO over rival brands.",
+                        documents: "Retail Loyalty Reward Policy Card",
+                        risks: "Complicated reward structures that shopkeepers don't understand.",
+                        points: [
+                            "Develop attractive retailer volume incentives (e.g., Free cases).",
+                            "Plan branded shop display racks and promo materials.",
+                            "Establish monthly sales milestone rewards."
+                        ]
+                    },
+                    {
+                        day: 39,
+                        title: "Delivery Staff Commission Structure",
+                        responsible: "HR / Operations Lead",
+                        importance: "Motivates delivery boys to add new shops along their route.",
+                        documents: "Commission & Per-Case Incentive Matrix",
+                        risks: "Fixed salary without performance incentives resulting in slow deliveries.",
+                        points: [
+                            "Design per-case incentive scheme for delivery staff.",
+                            "Create new shop onboarding bonuses for drivers.",
+                            "Establish route performance monitoring KPIs."
+                        ]
+                    },
+                    {
+                        day: 40,
+                        title: "Team Onboarding & Policy Finalization",
+                        responsible: "Founder / HR Manager",
+                        importance: "Ensures full team alignment with plant hygiene and safety rules.",
+                        documents: "Employee Code of Conduct & Safety Rulebook",
+                        risks: "Staff working without hairnets or protective footwear in cleanroom.",
+                        points: [
+                            "Finalize all employment terms and incentive rules.",
+                            "Conduct operational team onboarding meeting.",
+                            "Distribute hygiene and safety handbooks."
+                        ]
+                    }
+                ]
+            },
+            {
+                phase: 9,
+                title: "PHASE 9: DISTRIBUTION PREPARATION",
+                daysRange: "DAY 41 – DAY 45",
+                group: 3,
+                days: [
+                    {
+                        day: 41,
+                        title: "Delivery Vehicle Arrangement & Branding",
+                        responsible: "Logistics Lead",
+                        importance: "Branded delivery vehicles act as mobile billboards in Karimba & Mannarkkad.",
+                        documents: "Vehicle Lease Agreement & Branding Graphics Artwork",
+                        risks: "Using un-covered open trucks that expose bottles to direct sunlight.",
+                        points: [
+                            "Source suitable covered delivery auto-rickshaws / small trucks.",
+                            "Apply bold PLEXO WATER graphic branding on vehicles.",
+                            "Plan safe bottle stacking arrangements inside trucks."
+                        ]
+                    },
+                    {
+                        day: 42,
+                        title: "Master Route Schedule & Driver Assignment",
+                        responsible: "Logistics Lead",
+                        importance: "Guarantees no shop runs out of stock during weekend sales spikes.",
+                        documents: "Master Delivery Route Time-Table",
+                        risks: "Driver confusion resulting in missed shop deliveries.",
+                        points: [
+                            "Map final daily shop delivery routes.",
+                            "Assign specific shops and routes to drivers.",
+                            "Establish emergency stock replenishment backup."
+                        ]
+                    },
+                    {
+                        day: 43,
+                        title: "Order Collection & Cash SOPs",
+                        responsible: "Finance / Operations Manager",
+                        importance: "Prevents cash leaks and maintains tight working capital control.",
+                        documents: "Standard Operating Procedure (SOP) for Order & Payment Collection",
+                        risks: "Loose verbal orders resulting in wrong crate dispatch.",
+                        points: [
+                            "Develop digital/paper order collection procedures.",
+                            "Establish daily cash collection and UPI reconciliation.",
+                            "Set up empty crate inventory tracking."
+                        ]
+                    },
+                    {
+                        day: 44,
+                        title: "Customer Complaint & Replacement Rules",
+                        responsible: "Quality Control Lead",
+                        importance: "Fast replacement builds rock-solid retailer loyalty.",
+                        documents: "Damaged Bottle & Complaint Handling SOP",
+                        risks: "Refusing to replace minor cap transit damages causing lost client.",
+                        points: [
+                            "Create customer quality complaint handling policy.",
+                            "Establish 24-hour damaged bottle replacement guarantee.",
+                            "Set up root-cause investigation log for defects."
+                        ]
+                    },
+                    {
+                        day: 45,
+                        title: "Distribution System Dry Run",
+                        responsible: "Logistics & Sales Head",
+                        importance: "Tests route timing without actual water payload.",
+                        documents: "Dry Run Assessment Sheet",
+                        risks: "Un-checked road traffic bottlenecks causing morning delivery delays.",
+                        points: [
+                            "Conduct dry run of delivery routes with drivers.",
+                            "Verify shopkeeper contact readiness.",
+                            "Finalize commercial dispatch plan."
+                        ]
+                    }
+                ]
+            },
+            {
+                phase: 10,
+                title: "PHASE 10: FINAL TECHNICAL PREPARATION",
+                daysRange: "DAY 46 – DAY 50",
+                group: 4,
+                days: [
+                    {
+                        day: 46,
+                        title: "Factory Building & Utility Final Audit",
+                        responsible: "Plant Engineer / Civil Lead",
+                        importance: "Ensures plant environment is 100% dust-proof and structurally sound.",
+                        documents: "Factory Readiness Completion Checklist",
+                        risks: "Exposed wiring or unfinished floor epoxy near water lines.",
+                        points: [
+                            "Review building civil readiness and epoxy floor coating.",
+                            "Verify 3-phase power supply and DG generator setup.",
+                            "Check cleanroom air filtration installation."
+                        ]
+                    },
+                    {
+                        day: 47,
+                        title: "Machinery Erection & Pipeline Piping Inspection",
+                        responsible: "Machinery Technical Engineer",
+                        importance: "Improperly mounted pumps cause severe vibration and joint leakage.",
+                        documents: "Equipment Installation & Pressure Test Log",
+                        risks: "Using non-food-grade PVC pipes instead of SS316 for purified water.",
+                        points: [
+                            "Complete installation of WTP, RO, UV, and Ozone systems.",
+                            "Inspect SS316 food-grade piping and valves.",
+                            "Check high-pressure pump connections."
+                        ]
+                    },
+                    {
+                        day: 48,
+                        title: "RFC Bottling Line Calibration & Trial Runs",
+                        responsible: "Plant Operator",
+                        importance: "Ensures exact 1000ml filling volume and leak-free capping.",
+                        documents: "Machine Calibration Log",
+                        risks: "Under-filling bottles (< 1000ml) violating Legal Metrology rules.",
+                        points: [
+                            "Calibrate automatic bottle rinsing jets.",
+                            "Calibrate liquid filling volume sensors (1000 ml ± 5ml).",
+                            "Test automatic cap torque and shrink tunnel heating."
+                        ]
+                    },
+                    {
+                        day: 49,
+                        title: "In-House QC Laboratory Setup",
+                        responsible: "QC Chemist / Micro-Biologist",
+                        importance: "Required for daily batch testing mandated by BIS.",
+                        documents: "Lab Instrument Calibration Certificates",
+                        risks: "Uncalibrated pH meters or autoclaves giving wrong purity readings.",
+                        points: [
+                            "Install and calibrate laboratory glasswares, pH meter, TDS meter.",
+                            "Set up Laminar Air Flow bench & Autoclave for micro testing.",
+                            "Establish daily sanitation and CIP (Clean-in-Place) procedures."
+                        ]
+                    },
+                    {
+                        day: 50,
+                        title: "Complete Plant Technical Inspection",
+                        responsible: "Technical Director / Founder",
+                        importance: "Final internal sign-off before official BIS audit inspection.",
+                        documents: "Internal Technical Inspection Clearance Report",
+                        risks: "Ignoring minor ozone leaks that harm operator health.",
+                        points: [
+                            "Conduct full continuous 4-hour trial production run.",
+                            "Identify technical bottlenecks or water leaks.",
+                            "Issue immediate corrective action directives."
+                        ]
+                    }
+                ]
+            },
+            {
+                phase: 11,
+                title: "PHASE 11: FINAL VERIFICATION",
+                daysRange: "DAY 51 – DAY 55",
+                group: 4,
+                days: [
+                    {
+                        day: 51,
+                        title: "Regulatory Approvals & License Audit",
+                        responsible: "Compliance Officer",
+                        importance: "Ensures every legal document is granted before commercial sale.",
+                        documents: "BIS ISI License, FSSAI License, KSPCB Consent, Panchayat D&O",
+                        risks: "Selling even one bottle commercially with pending licenses leads to criminal charges.",
+                        points: [
+                            "Audit physical copy of BIS ISI license grant.",
+                            "Verify FSSAI license grant certificate.",
+                            "Confirm KSPCB, CGWA, and Panchayat approvals."
+                        ]
+                    },
+                    {
+                        day: 52,
+                        title: "Treated Water Compliance Verification",
+                        responsible: "QC Manager",
+                        importance: "Guarantees 100% adherence to IS 14543 parameters.",
+                        documents: "Final Batch NABL Lab Test Clearance Report",
+                        risks: "Ozone concentration exceeding 0.2 ppm in bottled water.",
+                        points: [
+                            "Test trial batch water sample in-house.",
+                            "Send sample to government lab for final verification.",
+                            "Confirm water meets 100% IS 14543 purity criteria."
+                        ]
+                    },
+                    {
+                        day: 53,
+                        title: "Packaging Integrity & Drop Test Audit",
+                        responsible: "Packaging Lead",
+                        importance: "Ensures bottles don't burst when dropped during loading.",
+                        documents: "Packaging Drop-Test & Leakage Audit Report",
+                        risks: "Weak bottle base causing bottom rupture upon 1.5m drop.",
+                        points: [
+                            "Perform 1.5-meter drop tests on filled bottles.",
+                            "Check cap seal torque under high pressure.",
+                            "Verify barcode scan legibility on labels."
+                        ]
+                    },
+                    {
+                        day: 54,
+                        title: "Permitted Trial Production Run",
+                        responsible: "Operations Head",
+                        importance: "Tests factory performance under full speed production conditions.",
+                        documents: "Trial Batch Logbook",
+                        risks: "Bottleneck at shrink wrapper causing production line backup.",
+                        points: [
+                            "Execute full 1-day trial production run.",
+                            "Log hourly bottle output speed (BPM).",
+                            "Verify employee team coordination."
+                        ]
+                    },
+                    {
+                        day: 55,
+                        title: "Final Compliance & Technical Checklist",
+                        responsible: "Project Manager",
+                        importance: "Final readiness green-light before commercial market launch.",
+                        documents: "Master 60-Day Compliance Sign-Off Sheet",
+                        risks: "Launching with unresolved technical errors.",
+                        points: [
+                            "Rectify any remaining technical observations.",
+                            "Verify 100% completion of Day 1 - 54 tasks.",
+                            "Sign master launch authorization document."
+                        ]
+                    }
+                ]
+            },
+            {
+                phase: 12,
+                title: "PHASE 12: BUSINESS LAUNCH PREPARATION",
+                daysRange: "DAY 56 – DAY 60",
+                group: 4,
+                days: [
+                    {
+                        day: 56,
+                        title: "Raw Material & Packaging Stock Audit",
+                        responsible: "Procurement Manager",
+                        importance: "Ensures uninterrupted factory run during launch week.",
+                        documents: "Inventory Stock Sheet (Caps, Preforms, Labels, Shrink Film)",
+                        risks: "Running out of bottle caps on Day 2 of commercial launch.",
+                        points: [
+                            "Audit warehouse packaging inventory (20,000+ units).",
+                            "Verify raw water reservoir full capacity storage.",
+                            "Confirm spare parts and chemical reagents availability."
+                        ]
+                    },
+                    {
+                        day: 57,
+                        title: "Retailer Order Re-Confirmation",
+                        responsible: "Sales Lead",
+                        importance: "Locks in Day-1 delivery routes and quantities.",
+                        documents: "Day 1 Dispatch Manifest",
+                        risks: "Shops refusing delivery due to lack of notice.",
+                        points: [
+                            "Call and re-confirm orders with all 100+ partner shops.",
+                            "Confirm exact delivery window times.",
+                            "Brief delivery drivers on dispatch route."
+                        ]
+                    },
+                    {
+                        day: 58,
+                        title: "Marketing & Launch Announcements",
+                        responsible: "Marketing Head",
+                        importance: "Generates public awareness across Karimba & Mannarkkad.",
+                        documents: "Social Media Campaign Artwork, Local Banners",
+                        risks: "Launching in complete secrecy without local brand buzz.",
+                        points: [
+                            "Distribute PLEXO WATER promo banners to partner shops.",
+                            "Launch localized social media brand announcements.",
+                            "Issue trade press release in local news outlets."
+                        ]
+                    },
+                    {
+                        day: 59,
+                        title: "Final Pre-Launch Operational Briefing",
+                        responsible: "Founder / Board Partners",
+                        importance: "Aligns entire company on commercial launch execution.",
+                        documents: "Launch Day Protocol Sheet",
+                        risks: "Miscommunication between plant operator and delivery team.",
+                        points: [
+                            "Hold all-hands operational meeting.",
+                            "Review emergency backup protocols.",
+                            "Confirm 100% green light for commercial production."
+                        ]
+                    },
+                    {
+                        day: 60,
+                        title: "COMMERCIAL LAUNCH & PRODUCTION START",
+                        responsible: "Founder & Full Team",
+                        importance: "COMMERCIAL RULE: Start production ONLY if every legal license, approval, and lab test is 100% satisfied.",
+                        documents: "Commercial Launch Certificate & First Sales Invoice",
+                        risks: "COMMERCIAL LAUNCH WITHOUT COMPLIANCE WILL CAUSE LEGAL SHUTDOWN.",
+                        points: [
+                            "Begin official commercial water production.",
+                            "Dispatch first delivery trucks to 100+ partner shops.",
+                            "Celebrate PLEXO WATER commercial grand launch!"
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        // -------------------------------------------------------------
+        // 2. STATE MANAGEMENT & LOCALSTORAGE
+        // -------------------------------------------------------------
+        let completedDays = JSON.parse(localStorage.getItem('plexo_completed_days')) || [];
+
+        function saveCompletedDays() {
+            localStorage.setItem('plexo_completed_days', JSON.stringify(completedDays));
+            updateOverallProgress();
+        }
+
+        function updateOverallProgress() {
+            const totalDays = 60;
+            const count = completedDays.length;
+            const percent = Math.round((count / totalDays) * 100);
+
+            const progressBar = document.getElementById('overallProgressBar');
+            const progressText = document.getElementById('overallProgressText');
+
+            if (progressBar && progressText) {
+                progressBar.style.width = `${percent}%`;
+                progressText.innerText = `${percent}% (${count}/60 Days)`;
+            }
+        }
+
+        // -------------------------------------------------------------
+        // 3. RENDER ROADMAP ACCORDIONS & CARDS
+        // -------------------------------------------------------------
+        function renderRoadmap(filterGroup = 'all', searchQuery = '') {
+            const container = document.getElementById('roadmapContainer');
+            container.innerHTML = '';
+
+            phasesData.forEach((phaseObj) => {
+                // Filter by phase group if selected
+                if (filterGroup !== 'all' && phaseObj.group != filterGroup) {
+                    return;
+                }
+
+                // Filter days by search query if present
+                const filteredDays = phaseObj.days.filter(d => {
+                    if (!searchQuery) return true;
+                    const q = searchQuery.toLowerCase();
+                    return d.title.toLowerCase().includes(q) ||
+                           d.responsible.toLowerCase().includes(q) ||
+                           d.importance.toLowerCase().includes(q) ||
+                           d.points.some(p => p.toLowerCase().includes(q));
+                });
+
+                if (filteredDays.length === 0) return;
+
+                // Phase Header Card
+                const phaseCard = document.createElement('div');
+                phaseCard.className = 'glass-card rounded-2xl overflow-hidden border border-white/10 transition';
+
+                // Phase Header Bar
+                const phaseCompletedCount = phaseObj.days.filter(d => completedDays.includes(d.day)).length;
+                const phasePercent = Math.round((phaseCompletedCount / phaseObj.days.length) * 100);
+
+                phaseCard.innerHTML = `
+                    <div class="p-5 bg-gradient-to-r from-plexo-navy via-plexo-deep to-plexo-navy border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-pointer" onclick="togglePhaseContent(${phaseObj.phase})">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-8 h-8 rounded-lg bg-plexo-gold/20 text-plexo-gold font-serif font-bold text-sm flex items-center justify-center border border-plexo-gold/40">${phaseObj.phase}</span>
+                            <div>
+                                <h3 class="font-serif text-lg font-bold text-white">${phaseObj.title}</h3>
+                                <span class="text-xs text-plexo-cyan font-semibold">${phaseObj.daysRange}</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="text-right">
+                                <span class="text-xs text-gray-400 block">Phase Progress</span>
+                                <span class="text-xs font-bold text-plexo-gold">${phaseCompletedCount}/${phaseObj.days.length} Days (${phasePercent}%)</span>
+                            </div>
+                            <div class="w-24 bg-plexo-navy h-2 rounded-full overflow-hidden border border-white/10 hidden sm:block">
+                                <div class="bg-plexo-gold h-full transition-all duration-300" style="width: ${phasePercent}%"></div>
+                            </div>
+                            <i id="phaseIcon-${phaseObj.phase}" class="fa-solid fa-chevron-down text-gray-400 text-sm transition-transform duration-300"></i>
+                        </div>
+                    </div>
+
+                    <!-- Phase Days Container -->
+                    <div id="phaseContent-${phaseObj.phase}" class="p-4 sm:p-6 space-y-4">
+                        <div class="grid grid-cols-1 gap-4">
+                            ${filteredDays.map(dayData => renderDayCard(dayData)).join('')}
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(phaseCard);
+            });
+
+            if (container.children.length === 0) {
+                container.innerHTML = `
+                    <div class="glass-card p-12 text-center rounded-2xl">
+                        <i class="fa-solid fa-folder-open text-4xl text-gray-500 mb-3"></i>
+                        <p class="text-gray-300 text-sm">No operational days matching your filter or search query.</p>
+                    </div>
+                `;
+            }
+        }
+
+        function renderDayCard(d) {
+            const isChecked = completedDays.includes(d.day);
+            return `
+                <div class="glass-card-interactive glass-card rounded-xl p-4 sm:p-5 border border-white/5 ${isChecked ? 'bg-plexo-gold/5 border-plexo-gold/30' : ''}">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-white/10">
+                        <div class="flex items-center space-x-3">
+                            <input type="checkbox" id="check-day-${d.day}" ${isChecked ? 'checked' : ''} onchange="toggleDayCheck(${d.day})" class="w-5 h-5 accent-plexo-gold rounded cursor-pointer">
+                            <label for="check-day-${d.day}" class="cursor-pointer">
+                                <span class="text-xs font-bold text-plexo-gold uppercase tracking-wider block">DAY ${d.day}</span>
+                                <h4 class="text-base font-bold text-white hover:text-plexo-cyan transition">${d.title}</h4>
+                            </label>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[11px] bg-plexo-navy px-2.5 py-1 rounded-full text-plexo-cyan border border-plexo-cyan/20">
+                                <i class="fa-solid fa-user-gear text-[10px] mr-1"></i> ${d.responsible}
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Action Points -->
+                    <div class="mt-4 space-y-2">
+                        <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider block mb-1">Key Action Points:</span>
+                        <ul class="space-y-1.5 text-xs sm:text-sm text-gray-200 pl-1">
+                            ${d.points.map((pt, idx) => `
+                                <li class="flex items-start gap-2">
+                                    <span class="text-plexo-gold font-bold text-xs mt-0.5">${idx + 1}.</span>
+                                    <span>${pt}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+
+                    <!-- Detailed Accordion inside Day -->
+                    <div class="mt-4 pt-3 border-t border-white/5 text-xs">
+                        <button onclick="toggleDayDetails(${d.day})" class="text-plexo-cyan hover:text-white font-medium flex items-center gap-1.5 transition">
+                            <i class="fa-solid fa-circle-info text-xs"></i>
+                            <span>View Importance, Docs & Risk Analysis</span>
+                            <i id="detailIcon-${d.day}" class="fa-solid fa-chevron-down text-[10px] transition-transform"></i>
+                        </button>
+                        
+                        <div id="dayDetails-${d.day}" class="hidden mt-3 p-3 bg-plexo-navy/80 rounded-lg space-y-2.5 border border-white/5">
+                            <div>
+                                <strong class="text-plexo-gold font-semibold block mb-0.5">Why This Step is Important:</strong>
+                                <p class="text-gray-300">${d.importance}</p>
+                            </div>
+                            <div>
+                                <strong class="text-plexo-cyan font-semibold block mb-0.5">Required Documents / Approvals:</strong>
+                                <p class="text-gray-300">${d.documents}</p>
+                            </div>
+                            <div>
+                                <strong class="text-red-400 font-semibold block mb-0.5"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Critical Risks to Avoid:</strong>
+                                <p class="text-gray-300">${d.risks}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // -------------------------------------------------------------
+        // 4. INTERACTIVE HANDLERS
+        // -------------------------------------------------------------
+        function togglePhaseContent(phaseNum) {
+            const content = document.getElementById(`phaseContent-${phaseNum}`);
+            const icon = document.getElementById(`phaseIcon-${phaseNum}`);
+            if (content) {
+                content.classList.toggle('hidden');
+                if (icon) icon.classList.toggle('rotate-180');
+            }
+        }
+
+        function toggleDayDetails(dayNum) {
+            const details = document.getElementById(`dayDetails-${dayNum}`);
+            const icon = document.getElementById(`detailIcon-${dayNum}`);
+            if (details) {
+                details.classList.toggle('hidden');
+                if (icon) icon.classList.toggle('rotate-180');
+            }
+        }
+
+        function toggleDayCheck(dayNum) {
+            if (completedDays.includes(dayNum)) {
+                completedDays = completedDays.filter(d => d !== dayNum);
+            } else {
+                completedDays.push(dayNum);
+            }
+            saveCompletedDays();
+            
+            // Re-render currently active view smoothly
+            const activePhaseBtn = document.querySelector('.phase-filter-btn.bg-plexo-gold');
+            const phaseVal = activePhaseBtn ? activePhaseBtn.getAttribute('data-phase') : 'all';
+            const searchQuery = document.getElementById('searchInput').value;
+            renderRoadmap(phaseVal, searchQuery);
+        }
+
+        // -------------------------------------------------------------
+        // 5. DYNAMIC CALCULATOR ENGINE
+        // -------------------------------------------------------------
+        function initCalculator() {
+            const inputShops = document.getElementById('inputShops');
+            const inputBottlesPerShop = document.getElementById('inputBottlesPerShop');
+            const inputPackagingCost = document.getElementById('inputPackagingCost');
+
+            const valShops = document.getElementById('valShops');
+            const valBottles = document.getElementById('valBottles');
+            const valCost = document.getElementById('valCost');
+
+            const outMonthlyBottles = document.getElementById('outMonthlyBottles');
+            const outMonthlyCost = document.getElementById('outMonthlyCost');
+            const outDailyCrates = document.getElementById('outDailyCrates');
+            const outTargetPercent = document.getElementById('outTargetPercent');
+            const barTargetPercent = document.getElementById('barTargetPercent');
+            const targetStatusText = document.getElementById('targetStatusText');
+
+            function calculate() {
+                const shops = parseInt(inputShops.value);
+                const bottlesPerShop = parseInt(inputBottlesPerShop.value);
+                const costPerBottle = parseFloat(inputPackagingCost.value);
+
+                // Update Input Labels
+                valShops.innerText = `${shops} Shops`;
+                valBottles.innerText = `${bottlesPerShop} Bottles/Day`;
+                valCost.innerText = `₹${costPerBottle.toFixed(2)}`;
+
+                // Math Computations
+                const dailyTotalBottles = shops * bottlesPerShop;
+                const monthlyBottles = dailyTotalBottles * 30; // 30 operational days
+                const monthlyPackagingCost = monthlyBottles * costPerBottle;
+                const dailyCrates = Math.ceil(dailyTotalBottles / 12); // 12 bottles per crate standard
+
+                // Target Network Percentage (Target is 100 Shops)
+                const targetGoal = 100;
+                const targetPct = Math.round((shops / targetGoal) * 100);
+
+                // Update Output Visuals
+                outMonthlyBottles.innerText = monthlyBottles.toLocaleString('en-IN');
+                outMonthlyCost.innerText = `₹${monthlyPackagingCost.toLocaleString('en-IN')}`;
+                outDailyCrates.innerText = dailyCrates.toLocaleString('en-IN');
+
+                outTargetPercent.innerText = `${targetPct}%`;
+                barTargetPercent.style.width = `${Math.min(targetPct, 100)}%`;
+
+                if (shops < 100) {
+                    targetStatusText.innerText = `${100 - shops} more shops needed to hit 100-shop target.`;
+                    targetStatusText.className = "text-[11px] text-yellow-400 mt-2 block";
+                } else if (shops === 100) {
+                    targetStatusText.innerText = `Target network goal achieved! (100 Shops)`;
+                    targetStatusText.className = "text-[11px] text-plexo-cyan mt-2 block font-semibold";
+                } else {
+                    targetStatusText.innerText = `Exceeding target goal by ${shops - 100} shops!`;
+                    targetStatusText.className = "text-[11px] text-green-400 mt-2 block font-semibold";
+                }
+            }
+
+            inputShops.addEventListener('input', calculate);
+            inputBottlesPerShop.addEventListener('input', calculate);
+            inputPackagingCost.addEventListener('input', calculate);
+
+            calculate(); // Run initial calculation
+        }
+
+        // -------------------------------------------------------------
+        // 6. INITIALIZATION & EVENT LISTENERS
+        // -------------------------------------------------------------
+        window.onload = function() {
+            updateOverallProgress();
+            renderRoadmap('all', '');
+            initCalculator();
+
+            // Filter Tabs Click Logic
+            const filterBtns = document.querySelectorAll('.phase-filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => {
+                        b.className = 'phase-filter-btn px-3 py-1.5 rounded-lg bg-plexo-navy/80 border border-white/10 text-gray-300 hover:border-plexo-gold transition whitespace-nowrap';
+                    });
+                    this.className = 'phase-filter-btn px-3 py-1.5 rounded-lg bg-plexo-gold text-plexo-navy font-bold transition whitespace-nowrap';
+
+                    const phaseVal = this.getAttribute('data-phase');
+                    const searchQuery = document.getElementById('searchInput').value;
+                    renderRoadmap(phaseVal, searchQuery);
+                });
+            });
+
+            // Search Bar Input Listener
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function() {
+                const activePhaseBtn = document.querySelector('.phase-filter-btn.bg-plexo-gold');
+                const phaseVal = activePhaseBtn ? activePhaseBtn.getAttribute('data-phase') : 'all';
+                renderRoadmap(phaseVal, this.value);
+            });
+        };
+    </script>
+</body>
+</html>
+```
