@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ledger Core – Expense & Investment Calculator</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--black:#000;--navy:#030a1c;--deep:#0a2260;--tick:#2e8bff;--light:#8fd3ff;--white:#fff;
+--glass:rgba(255,255,255,.055);--line:rgba(143,211,255,.2);box-sizing:border-box;
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;color:var(--white);font:400 15px/1.5 Inter,system-ui,sans-serif;background:var(--black);
+background-image:radial-gradient(900px 500px at 10% -10%,var(--deep),transparent 60%),radial-gradient(700px 500px at 100% 10%,rgba(46,139,255,.28),transparent 60%),
+linear-gradient(rgba(143,211,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(143,211,255,.05) 1px,transparent 1px);
+background-size:auto,auto,36px 36px,36px 36px;background-attachment:fixed}
+.wrap{max-width:1100px;margin:0 auto;padding:20px 16px 60px}
+h1,h2,.num{font-family:Orbitron,Inter,sans-serif}
+h1{font-size:clamp(22px,5vw,34px);margin:0;letter-spacing:.02em;font-weight:700}
+h1 span{color:var(--light)}
+.top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:20px}
+.sub{color:var(--light);opacity:.8;margin:4px 0 0;font-size:13px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);box-shadow:0 10px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.08)}
+.btn{position:relative;overflow:hidden;border:1px solid var(--line);background:rgba(46,139,255,.16);color:var(--white);padding:9px 16px;border-radius:12px;font:600 14px Inter,sans-serif;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s}
+.btn:hover{background:rgba(46,139,255,.35);box-shadow:0 0 22px rgba(46,139,255,.5);transform:translateY(-1px)}
+.btn.main{background:linear-gradient(135deg,var(--tick),#1347c9);border-color:transparent}
+.btn.sq{width:38px;height:38px;padding:0;font-size:20px;line-height:1;flex:none;border-radius:10px}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:rp .6s ease-out;pointer-events:none}
+@keyframes rp{to{transform:scale(4);opacity:0}}
+:focus-visible{outline:2px solid var(--light);outline-offset:2px}
+select,input{font:inherit;color:var(--white)}
+select{background:#06122e;border:1px solid var(--line);border-radius:10px;padding:9px 10px}
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:18px}
+.sum .glass{padding:18px 20px}
+.sum small{color:var(--light);font-size:13px}
+.sum .num{font-size:clamp(22px,4.5vw,30px);margin-top:6px;word-break:break-all;font-weight:700}
+.sum .net{border-color:var(--tick);box-shadow:0 0 40px rgba(46,139,255,.35),inset 0 1px 0 rgba(255,255,255,.1)}
+.sum .net .num{color:var(--light)}
+.grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:900px){.grid{grid-template-columns:1fr 1fr}.full{grid-column:1/-1}}
+.card{padding:18px;transition:border-color .25s,box-shadow .25s}
+.card:hover{border-color:rgba(143,211,255,.5);box-shadow:0 0 30px rgba(46,139,255,.2),0 10px 40px rgba(0,0,0,.5)}
+.head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.head h2{margin:0;font-size:15px;flex:1;font-weight:500}
+.tag{font-size:12px;color:var(--light);border:1px solid var(--line);padding:2px 9px;border-radius:99px}
+.sub-t{font-family:Orbitron,sans-serif;font-size:14px;color:var(--light)}
+.row{display:flex;gap:8px;margin-bottom:8px;align-items:center}
+.row .lbl{flex:1;min-width:0;padding:9px 2px;color:var(--white)}
+input.in{background:rgba(0,0,0,.45);border:1px solid var(--line);border-radius:10px;padding:9px 12px;min-width:0;transition:border-color .2s,box-shadow .2s}
+input.in:focus{outline:none;border-color:var(--tick);box-shadow:0 0 0 3px rgba(46,139,255,.3)}
+input.name{flex:1}
+input.amt{width:130px;text-align:right;font-variant-numeric:tabular-nums}
+.empty{color:var(--light);opacity:.7;font-size:13px;margin:4px 0 10px}
+.bars .b{margin-bottom:12px}
+.bars .t{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+.track{height:8px;border-radius:9px;background:rgba(255,255,255,.08);overflow:hidden}
+.fill{height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--deep),var(--tick),var(--light));transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.mk{display:flex;gap:8px;flex-wrap:wrap}
+.mk input{flex:1;min-width:160px}
+.pr{display:none}
+@media(max-width:520px){input.amt{width:100px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{
+body{background:#fff!important;color:#000}:root{padding:0}
+.noprint,.btn,.mk,.empty{display:none!important}
+.glass{background:#fff!important;border:1px solid #000;box-shadow:none;backdrop-filter:none;color:#000;break-inside:avoid}
+h1 span,.sum small,.sub,.sub-t,.sum .net .num,.tag{color:#000}
+input.in{background:#fff;border:0;border-bottom:1px solid #999;color:#000;border-radius:0}
+.row .lbl{color:#000}.track{border:1px solid #000;background:#fff}.fill{background:#000!important}
+.grid{grid-template-columns:1fr 1fr;gap:10px}.pr{display:block;margin:0 0 12px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1>Ledger <span>Core</span></h1>
+      <p class="sub">Investments, machines, licenses and expenses in one live report.</p>
+      <p class="sub pr" id="pdate"></p>
+    </div>
+    <div class="tools noprint">
+      <select id="cur" aria-label="Currency"><option>₹</option><option>$</option><option>€</option><option>£</option><option>AED </option></select>
+      <button class="btn" id="reset">Reset all</button>
+      <button class="btn main" id="print">Download PDF</button>
+    </div>
+  </div>
+
+  <div class="sum">
+    <div class="glass"><small>Total investment</small><div class="num" id="tIn">0</div></div>
+    <div class="glass"><small>Total expenses</small><div class="num" id="tEx">0</div></div>
+    <div class="glass net"><small id="nLbl">Net balance</small><div class="num" id="tNet">0</div></div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="grid" style="margin-top:16px">
+    <div class="glass card">
+      <div class="head"><h2>Expense breakdown</h2></div>
+      <div class="bars" id="bars"></div>
+    </div>
+    <div class="glass card noprint">
+      <div class="head"><h2>Create a custom category</h2></div>
+      <div class="mk">
+        <input class="in" id="cName" placeholder="Category name" maxlength="40">
+        <select id="cType" aria-label="Category type"><option value="ex">Expense</option><option value="in">Investment</option></select>
+        <button class="btn main" id="cAdd">Create category</button>
+      </div>
+      <p class="empty" style="margin-top:12px">New categories get their own rows with add and remove buttons.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const fixed = n => ({n, a:0, fixed:1});
+const free = n => ({n, a:0});
+const initial = () => ([
+  {id:'inv', title:'Investments', type:'in', rows:['Rijo','Aadhi','Rebin','Fazil','Sponsor'].map(fixed), add:'Add investor', ph:'Investor name'},
+  {id:'mac', title:'Machines', type:'ex', rows:[free('')], add:'Add machine', ph:'Machine name'},
+  {id:'lic', title:'Licenses', type:'ex', rows:[free('')], add:'Add license', ph:'License name'},
+  {id:'sup', title:'Production supplies', type:'ex', rows:['Bottles','Labels','Caps'].map(free), add:'Add supply', ph:'Supply name'},
+  {id:'per', title:'Personal expenses', type:'ex', rows:['Rijo','Aadhi','Rebin','Ebin','Fazil'].map(fixed), add:'Add person', ph:'Person name'},
+  {id:'gen', title:'General expenses', type:'ex', rows:['Transporting','Food'].map(fixed), add:'Add expense', ph:'Expense name'}
+]);
+let S = initial(), uid = 0;
+const $ = id => document.getElementById(id);
+const el = (t, c, txt) => { const e = document.createElement(t); if (c) e.className = c; if (txt != null) e.textContent = txt; return e; };
+const money = v => $('cur').value + new Intl.NumberFormat('en-IN', {maximumFractionDigits:2}).format(v);
+const sum = s => s.rows.reduce((t, r) => t + r.a, 0);
+
+function build(){
+  const grid = $('grid'); grid.textContent = '';
+  S.forEach(sec => {
+    const card = el('section', 'glass card' + (sec.rows.length > 5 ? ' full' : ''));
+    const head = el('div', 'head');
+    head.append(el('h2', '', sec.title), el('span', 'tag', sec.type === 'in' ? 'Investment' : 'Expense'));
+    const st = el('span', 'sub-t', ''); st.dataset.sub = sec.id; head.append(st);
+    const plus = el('button', 'btn sq noprint', '+'); plus.title = sec.add; plus.setAttribute('aria-label', sec.add);
+    plus.onclick = () => { sec.rows.push(free('')); build(); calc(); };
+    head.append(plus);
+    if (sec.custom) {
+      const del = el('button', 'btn sq noprint', '×'); del.title = 'Delete category'; del.setAttribute('aria-label', 'Delete category');
+      del.onclick = () => { S = S.filter(x => x !== sec); build(); calc(); };
+      head.append(del);
+    }
+    card.append(head);
+    if (!sec.rows.length) card.append(el('p', 'empty', 'Nothing here yet. Use + to ' + sec.add.toLowerCase() + '.'));
+    sec.rows.forEach(r => {
+      const row = el('div', 'row');
+      if (r.fixed) row.append(el('span', 'lbl', r.n));
+      else {
+        const nm = el('input', 'in name'); nm.placeholder = sec.ph; nm.value = r.n; nm.setAttribute('aria-label', sec.ph);
+        nm.oninput = () => { r.n = nm.value; calc(); };
+        row.append(nm);
+      }
+      const am = el('input', 'in amt'); am.type = 'number'; am.min = 0; am.step = 'any'; am.inputMode = 'decimal';
+      am.value = r.a; am.setAttribute('aria-label', (r.n || sec.ph) + ' amount');
+      am.onfocus = () => { if (Number(am.value) === 0) am.value = ''; else am.select(); };
+      am.onblur = () => { if (am.value === '') am.value = 0; };
+      am.oninput = () => { r.a = Math.max(0, parseFloat(am.value) || 0); calc(); };
+      row.append(am);
+      if (!r.fixed) {
+        const rm = el('button', 'btn sq noprint', '−'); rm.title = 'Remove'; rm.setAttribute('aria-label', 'Remove row');
+        rm.onclick = () => { sec.rows = sec.rows.filter(x => x !== r); build(); calc(); };
+        row.append(rm);
+      }
+      card.append(row);
+    });
+    grid.append(card);
+  });
+}
+
+const shown = {};
+function tween(id, to){
+  const node = $(id), from = shown[id] || 0; shown[id] = to;
+  const t0 = performance.now();
+  (function f(t){ const p = Math.min(1, (t - t0) / 350); node.textContent = money(from + (to - from) * p); if (p < 1) requestAnimationFrame(f); })(t0);
+}
+
+function calc(){
+  const inv = S.filter(s => s.type === 'in').reduce((t, s) => t + sum(s), 0);
+  const exs = S.filter(s => s.type === 'ex');
+  const ex = exs.reduce((t, s) => t + sum(s), 0);
+  const net = inv - ex;
+  tween('tIn', inv); tween('tEx', ex); tween('tNet', net);
+  $('nLbl').textContent = net < 0 ? 'Net balance (deficit)' : net > 0 ? 'Net balance (surplus)' : 'Net balance';
+  document.querySelectorAll('[data-sub]').forEach(n => { const s = S.find(x => x.id === n.dataset.sub); if (s) n.textContent = money(sum(s)); });
+  const bars = $('bars'); bars.textContent = '';
+  exs.forEach(s => {
+    const v = sum(s), b = el('div', 'b'), t = el('div', 't');
+    t.append(el('span', '', s.title), el('span', '', money(v) + (ex ? '  ·  ' + Math.round(v / ex * 100) + '%' : '')));
+    const tr = el('div', 'track'), f = el('div', 'fill'); tr.append(f); b.append(t, tr); bars.append(b);
+    requestAnimationFrame(() => f.style.width = (ex ? v / ex * 100 : 0) + '%');
+  });
+}
+
+$('cur').onchange = () => { Object.keys(shown).forEach(k => shown[k] = 0); calc(); };
+$('print').onclick = () => { $('pdate').textContent = 'Report generated ' + new Date().toLocaleString(); window.print(); };
+$('reset').onclick = () => { if (confirm('Reset every amount and category to its starting state?')) { S = initial(); build(); calc(); } };
+$('cAdd').onclick = () => {
+  const name = $('cName').value.trim(); if (!name) { $('cName').focus(); return; }
+  S.push({id:'c' + (++uid), title:name, type:$('cType').value, rows:[free('')], add:'Add item', ph:'Item name', custom:1});
+  $('cName').value = ''; build(); calc();
+};
+document.addEventListener('click', e => {
+  const b = e.target.closest('.btn'); if (!b) return;
+  const r = b.getBoundingClientRect(), d = Math.max(r.width, r.height), s = el('span', 'ripple');
+  s.style.cssText = `width:${d}px;height:${d}px;left:${e.clientX - r.left - d / 2}px;top:${e.clientY - r.top - d / 2}px`;
+  b.append(s); setTimeout(() => s.remove(), 600);
+});
+build(); calc();
+</script>
+</body>
+</html>
